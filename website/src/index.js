@@ -5,13 +5,14 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Layout from './pages/Layout';
 import Selection from './pages/Selection';
+import NavBar from './NavBar';
 
 export default function App() {
   return (
     <BrowserRouter>
+      <NavBar />
       <Routes>
-        <Route path="/" element={<Layout />}>
-        </Route>
+        <Route path="/" element={<Layout />} />
         <Route path="/selection/:navId" element={<Selection />} />
       </Routes>
     </BrowserRouter>
