@@ -1,6 +1,7 @@
 {
   "name": "foodforterps",
   "version": "0.1.0",
+  "homepage": "https://luxeu.github.io/foodforterps",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
@@ -9,12 +10,15 @@
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.3.5",
     "react": "^19.1.0",
+    "react-bootstrap": "^2.10.9",
     "react-bootstrap-validation": "^0.1.11",
     "react-dom": "^19.1.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -39,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "react-router-dom": "^7.5.0"
   }
 }
