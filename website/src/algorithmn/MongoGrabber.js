@@ -1,130 +1,126 @@
 import {MongoClient} from "mongodb"
 
-const uri = "mongodb+srv://syang8:tI39ghVdmISktK8U@cluster.gzowamk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster"
 
-const client = new MongoClient(uri);
-async function run(String mealtime) {
-  try {
-    const database = client.db('FoodForTerps');
-    const general = database.collection('General');
-    const nutrition = database.collection('Nutrition');
-    // Query for a movie that has the title 'Back to the Future'
-    const food = await general.findOne({});
-    console.log(food.name);
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
+function findFoodNut(food_name, nut_array) {
+    nut_array.forEach(element => {
+        nut_array.forEach(element => {
+            if(element.name == food_name) {
+                return element;
+            }
+        });
+    });
+    return null;
 }
-run().catch(console.dir);
-// // import mongoose from 'mongoose';
-// const mongoose = require('mongoose');
 
-// const {Schema, model} = mongoose;
+function sortedInsert(array, element) {
+    if(array.length == 0) {
+        array.push(element);
+        console.log("pushed");
+    }
+    else {
+        var i = 0;
+        while(element.nutrition.calories > array[i].nutrition.calories) {
+            i++;
+        }
+        array.splice(i,0,element);
+        console.log("spliced");
+    }
+}
 
-// const GeneralSchema = new Schema({
-//     name: {
-//         type : String
-//     },
-//     location: {
-//         type : String
-//     },
-//     dairy: {
-//         type : Boolean
-//     },
-//     egg: {
-//         type : Boolean
-//     },
-//     fish: {
-//         type : Boolean
-//     },
-//     gluten: {
-//         type : Boolean
-//     },
-//     nuts: {
-//         type : Boolean
-//     },
-//     sesame: {
-//         type : Boolean
-//     },
-//     shellfish: {
-//         type : Boolean
-//     },
-//     soy: {
-//         type : Boolean
-//     },
-//     halal: {
-//         type : Boolean
-//     },
-//     local: {
-//         type : Boolean
-//     },
-//     smart: {
-//         type : Boolean
-//     },
-//     vegan: {
-//         type : Boolean
-//     },
-//     vegetarian: {
-//         type : Boolean
-//     }
-// });
-// const NutritionSchema = new Schema({
-//     name: {
-//         type : String
-//     },
-//     food_group: {
-//         type: String
-//     },
-//     nutrition: {
-//         total_fat: {
-//             type: Number
-//         },
-//         total_carbs: {
-//             type : Number
-//         },
-//         total_carbs_daily: {
-//             type : Number
-//         },
-//         total_sugars: {
-//             type : Number
-//         },
-//         cholesterol: {
-//             type : Number
-//         },
-//         sodium: {
-//             type : Number
-//         },
-//         sodium_daily: {
-//             type : Number
-//         },
-//         protein: {
-//             type : Number
-//         }
-//     }
-// });
+function FoodObject(general, nutrition) {
+    this.name = general.name;
+    this.location = general.location;
+    this.dairy = general.dairy;
+    this.egg = general.egg;
+    this.fish = general.fish;
+    this.gluten = general.gluten;
+    this.nuts = general.nuts;
+    this.sesame = general.sesame;
+    this.shellfish = general.shellfish;
+    this.soy = general.soy;
+    this.halal = general.halal;
+    this.local = general.local;
+    this.smart = general.smart;
+    this.vegan = general.vegan;
+    this.vegetarian = general.vegetarian;
+    this.food_group = nutrition.food_group;
+    this.nutrition = nutrition.nutrition;
 
-// const General = model("General", GeneralSchema);
-// const Nutrition = model("Nutrition", NutritionSchema);
+}
+
+async function run(mealtime, hall) {
+    const uri = "mongodb+srv://syang8:tI39ghVdmISktK8U@cluster.gzowamk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster"
+
+    const client = new MongoClient(uri);
+    var map = new Map();
+    try {
+        const database = client.db('FoodForTerps');
+        const general = database.collection('General');
+        const nutrition = database.collection('Nutrition');
+        
+        const hall_doc = await general.findOne({name: hall});
+        // const nut_doc = await nutrition.find({});
+        // console.log(nut_doc.toArray());
+        var food_list;
+        if(mealtime == "breakfast") {
+            food_list = hall_doc.breakfast_list;
+        }
+        else if(mealtime == "lunch") {
+            food_list = hall_doc.lunch_list;
+        }
+        else if(mealtime == "dinner") {
+            food_list = hall_doc.dinner_list;
+        }
+        // console.log(food_list);
+        var grains = [];
+        var proteins = [];
+        var fruits = [];
+        var other = [];
+        for(const food of food_list) {
+        // food_list.forEach(async food => {
+            var foodNut = await nutrition.findOne({name: "Nutrition | Label - " + food.name + " "});
+            // var foodNut = findFoodNut("Nutrition | Label - " + food.name + " ", );
+            // console.log(foodNut);
+            if(foodNut != null) {
+                var foodObj = new FoodObject(food, foodNut);
+                console.log(foodObj.name + " grabbed");
+                if(foodObj.food_group == "Protein") {
+                    sortedInsert(proteins, foodObj);
+                }
+                else if (foodObj.food_group == "Grain") {
+                    sortedInsert(grains, foodObj);
+                }
+                else if (foodObj.food_group == "Fruits") {
+                    sortedInsert(fruits, foodObj);
+                }
+                else {
+                    sortedInsert(other, foodObj);
+                }
+                console.log(foodObj.name + " sorted");
+            }
+            else {
+                console.log(food.name + " not found");
+            }
+        }
+
+        map.set("grains", grains);
+        map.set("proteins", proteins);
+        map.set("fruits", fruits);
+        map.set("other", other);
+        // return map;
+    } finally {
+        // Ensures that the client will close when you finish/error
+        await client.close();
+    }
+    console.log("Returning map");
+    return map;
+} 
+var wmap = await run("lunch", "yahen").catch(console.dir);
+console.log("PLEEASSE");
+console.log(wmap);
 
 
-// function FoodObject(generalObject, nutritionObject) {
-//     this.general = generalObject;
-//     this.nutrition = nutritionObject;
-// }
 
-// async function main() {
-//     console.log("HELLOOOOO");
-//     mongoose.connect("mongodb+srv://syang8:tI39ghVdmISktK8U@cluster.gzowamk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster")
-//     general = await General.find({}).exec();
-//     nutrition = await Nutrition.find({}).exec();
-//     console.log(general);
-//     console.log(nutrition);
-//     return
-//     // test = new FoodObject(JSON.parse("RAH"), JSON.parse("RAH"))
-// }
-
-// main();
 // // TODO
 // /*
 //     Food Grabber
@@ -137,7 +133,5 @@ run().catch(console.dir);
 //             - map of general objects to nutrition objects?
 //             - Retrieve food_group value
 //             - store in map of lists depending on that value
-//             - do a sorted insert
-
-        
+//             - do a sorted insert        
 // */
