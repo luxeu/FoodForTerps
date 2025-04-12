@@ -1,23 +1,21 @@
-import MongoGrabber from "./MongoGrabber";
+import {generateFoodMap} from "./MongoGrabber.js";
+// const food = require('./MongoGrabber.js');
 
-function CalorieDetector(time, location, index){
-    const foodList = run(time, location);
+async function CalorieDetector(time, location, index){
+    // const foodList = await food.generateFoodMap(time, location);
+    const foodList = await generateFoodMap(time, location);
+    console.log("Grabbing Grains");
+    const grain = foodList.get('grains')[index];
+    const fruits = foodList.get('fruits')[index];
+    const protein = foodList.get('proteins')[index];
     const result = [];
-    // const foodList = new Map();
-    // foodList.set('Grains', ["Food1","Food2","Food3","Food4","Food5"]);
-    // foodList.set('Fruits', ["Food6","Food7","Food8","Food9","Food10"]);
-    // foodList.set('Protein', ["Food11","Food12","Food13","Food14","Food15"]);
-    // const foodList = [];
-
-    const grain = foodList.get('Grains')[index];
-    const fruit = foodList.get('Fruits')[index];
-    const protein = foodList.get('Protein')[index];
-    
     result[0] = grain;
-    result[1] = fruit;
+    result[1] = fruits;
     result[2] = protein;
-    return result
+    return result;
+
 }
 
-console.log(CalorieDetector(2));
+const fuck = await CalorieDetector("lunch", "yahen", 0);
+console.log(fuck);
 

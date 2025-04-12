@@ -15,7 +15,7 @@ function findFoodNut(food_name, nut_array) {
 function sortedInsert(array, element) {
     if(array.length == 0) {
         array.push(element);
-        console.log("pushed");
+        // console.log("pushed");
     }
     else {
         var i = 0;
@@ -23,7 +23,7 @@ function sortedInsert(array, element) {
             i++;
         }
         array.splice(i,0,element);
-        console.log("spliced");
+        // console.log("spliced");
     }
 }
 
@@ -76,6 +76,7 @@ export async function generateFoodMap(mealtime, hall) {
         var proteins = [];
         var fruits = [];
         var other = [];
+        console.log("Starting Pushing Foods");
         for(const food of food_list) {
         // food_list.forEach(async food => {
             var foodNut = await nutrition.findOne({name: "Nutrition | Label - " + food.name + " "});
@@ -83,7 +84,7 @@ export async function generateFoodMap(mealtime, hall) {
             // console.log(foodNut);
             if(foodNut != null) {
                 var foodObj = new FoodObject(food, foodNut);
-                console.log(foodObj.name + " grabbed");
+                // console.log(foodObj.name + " grabbed");
                 if(foodObj.food_group == "Protein") {
                     sortedInsert(proteins, foodObj);
                 }
@@ -96,10 +97,10 @@ export async function generateFoodMap(mealtime, hall) {
                 else {
                     sortedInsert(other, foodObj);
                 }
-                console.log(foodObj.name + " sorted");
+                // console.log(foodObj.name + " sorted");
             }
             else {
-                console.log(food.name + " not found");
+                // console.log(food.name + " not found");
             }
         }
 
@@ -113,12 +114,12 @@ export async function generateFoodMap(mealtime, hall) {
         await client.close();
     }
     console.log("Returning map");
+    // console.log(map);
     return map;
 } 
 // var wmap = await generateFoodMap("lunch", "yahen").catch(console.dir);
 // console.log("PLEEASSE");
 // console.log(wmap);
-
 
 
 
