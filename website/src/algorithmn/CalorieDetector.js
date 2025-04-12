@@ -46,150 +46,150 @@ async function DietDetector(time, location, dietMap){
     // const protein = foodList.get('proteins');
     const result = [];
     for (let i = 0; i < foodList.get('grains').length; i++) {
-        if(foodList.get('grains')[i].diary == dietMap.get("diary")){
+        console.log("inside");
+        if(dietMap.get("diary") && foodList.get('grains')[i].diary != dietMap.get("diary")){
             continue;
         }
-        if(foodList.get('grains')[i].egg == dietMap.get("egg")){
+        if(dietMap.get("egg") && foodList.get('grains')[i].egg != dietMap.get("egg")){
             continue;
         }
-        if(foodList.get('grains')[i].fish == dietMap.get("fish")){
+        if(dietMap.get("fish") && foodList.get('grains')[i].fish != dietMap.get("fish")){
             continue;
         }
-        if(foodList.get('grains')[i].gluten == dietMap.get("gluten")){
+        if(dietMap.get("gluten") && foodList.get('grains')[i].gluten != dietMap.get("gluten")){
             continue;
         }
-        if(foodList.get('grains')[i].nuts == dietMap.get("nuts")){
+        if(dietMap.get("nuts") && foodList.get('grains')[i].nuts != dietMap.get("nuts")){
             continue;
         }
-        if(foodList.get('grains')[i].sesame == dietMap.get("sesame")){
+        if(dietMap.get("sesame") && foodList.get('grains')[i].sesame != dietMap.get("sesame")){
             continue;
         }
-        if(foodList.get('grains')[i].shellfish == dietMap.get("shellfish")){
+        if(dietMap.get("shellfish") && foodList.get('grains')[i].shellfish != dietMap.get("shellfish")){
             continue;
         }
-        if(foodList.get('grains')[i].soy == dietMap.get("soy")){
+        if(dietMap.get("soy") && foodList.get('grains')[i].soy != dietMap.get("soy")){
             continue;
         }
-        if(foodList.get('grains')[i].halal == dietMap.get("halal")){
+        if(dietMap.get("halal") && foodList.get('grains')[i].halal != dietMap.get("halal")){
             continue;
         }
-        if(foodList.get('grains')[i].local == dietMap.get("local")){
+        if(dietMap.get("local") && foodList.get('grains')[i].local != dietMap.get("local")){
             continue;
         }
-        if(foodList.get('grains')[i].smart == dietMap.get("smart")){
+        if(dietMap.get("smart") && foodList.get('grains')[i].smart != dietMap.get("smart")){
             continue;
         }
-        if(foodList.get('grains')[i].vegan == dietMap.get("vegan")){
+        if(dietMap.get("vegan") && foodList.get('grains')[i].vegan != dietMap.get("vegan")){
             continue;
         }
-        if(foodList.get('grains')[i].vegetarian == dietMap.get("vegetarian")){
+        if(dietMap.get("vegetarian") && foodList.get('grains')[i].vegetarian != dietMap.get("vegetarian")){
             continue;
         }
+        console.log("grains");
         result[0] = foodList.get('grains')[i];
 
     }
+    
     for (let i = 0; i < foodList.get('fruits').length; i++) {
-        if(foodList.get('fruits')[i].diary == dietMap.get("diary")){
+        // console.log("IN FRUIT");
+        if(dietMap.get("diary") && foodList.get('fruits')[i].diary != dietMap.get("diary")){
             continue;
         }
-        if(foodList.get('fruits')[i].egg == dietMap.get("egg")){
+        if(dietMap.get("egg") && foodList.get('fruits')[i].egg != dietMap.get("egg")){
             continue;
         }
-        if(foodList.get('fruits')[i].fish == dietMap.get("fish")){
+        if(dietMap.get("fish") && foodList.get('fruits')[i].fish != dietMap.get("fish")){
             continue;
         }
-        if(foodList.get('fruits')[i].gluten == dietMap.get("gluten")){
+        if(dietMap.get("gluten") && foodList.get('fruits')[i].gluten != dietMap.get("gluten")){
             continue;
         }
-        if(foodList.get('fruits')[i].nuts == dietMap.get("nuts")){
+        if(dietMap.get("nuts") && foodList.get('fruits')[i].nuts != dietMap.get("nuts")){
             continue;
         }
-        if(foodList.get('fruits')[i].sesame == dietMap.get("sesame")){
+        if(dietMap.get("sesame") && foodList.get('fruits')[i].sesame != dietMap.get("sesame")){
             continue;
         }
-        if(foodList.get('fruits')[i].shellfish == dietMap.get("shellfish")){
+        if(dietMap.get("shellfish") && foodList.get('fruits')[i].shellfish != dietMap.get("shellfish")){
             continue;
         }
-        if(foodList.get('fruits')[i].soy == dietMap.get("soy")){
+        if(dietMap.get("soy") && foodList.get('fruits')[i].soy != dietMap.get("soy")){
             continue;
         }
-        if(foodList.get('fruits')[i].halal == dietMap.get("halal")){
+        if(dietMap.get("halal") && foodList.get('fruits')[i].halal != dietMap.get("halal")){
             continue;
         }
-        if(foodList.get('fruits')[i].local == dietMap.get("local")){
+        if(dietMap.get("local") && foodList.get('fruits')[i].local != dietMap.get("local")){
             continue;
         }
-        if(foodList.get('fruits')[i].smart == dietMap.get("smart")){
+        if(dietMap.get("smart") && foodList.get('fruits')[i].smart != dietMap.get("smart")){
             continue;
         }
-        if(foodList.get('fruits')[i].vegan == dietMap.get("vegan")){
+        if(dietMap.get("vegan") && foodList.get('fruits')[i].vegan != dietMap.get("vegan")){
             continue;
         }
-        if(foodList.get('fruits')[i].vegetarian == dietMap.get("vegetarian")){
+        if(dietMap.get("vegetarian") && foodList.get('fruits')[i].vegetarian != dietMap.get("vegetarian")){
             continue;
         }
         result[1] = foodList.get('fruits')[i];
     }
-
+   
     for (let i = 0; i < foodList.get('proteins').length; i++) {
-        if(foodList.get('proteins')[i].diary == dietMap.get("diary")){
+        if(dietMap.get("diary") && foodList.get('proteins')[i].diary != dietMap.get("diary")){
             continue;
         }
-        if(foodList.get('proteins')[i].egg == dietMap.get("egg")){
+        if(dietMap.get("egg") && foodList.get('proteins')[i].egg != dietMap.get("egg")){
             continue;
         }
-        if(foodList.get('proteins')[i].fish == dietMap.get("fish")){
+        if(dietMap.get("fish") && foodList.get('proteins')[i].fish != dietMap.get("fish")){
             continue;
         }
-        if(foodList.get('proteins')[i].gluten == dietMap.get("gluten")){
+        if(dietMap.get("gluten") && foodList.get('proteins')[i].gluten != dietMap.get("gluten")){
             continue;
         }
-        if(foodList.get('proteins')[i].nuts == dietMap.get("nuts")){
+        if(dietMap.get("nuts") && foodList.get('proteins')[i].nuts != dietMap.get("nuts")){
             continue;
         }
-        if(foodList.get('proteins')[i].sesame == dietMap.get("sesame")){
+        if(dietMap.get("sesame") && foodList.get('proteins')[i].sesame != dietMap.get("sesame")){
             continue;
         }
-        if(foodList.get('proteins')[i].shellfish == dietMap.get("shellfish")){
+        if(dietMap.get("shellfish") && foodList.get('proteins')[i].shellfish != dietMap.get("shellfish")){
             continue;
         }
-        if(foodList.get('proteins')[i].soy == dietMap.get("soy")){
+        if(dietMap.get("soy") && foodList.get('proteins')[i].soy != dietMap.get("soy")){
             continue;
         }
-        if(foodList.get('proteins')[i].halal == dietMap.get("halal")){
+        if(dietMap.get("halal") && foodList.get('proteins')[i].halal != dietMap.get("halal")){
             continue;
         }
-        if(foodList.get('proteins')[i].local == dietMap.get("local")){
+        if(dietMap.get("local") && foodList.get('proteins')[i].local != dietMap.get("local")){
             continue;
         }
-        if(foodList.get('proteins')[i].smart == dietMap.get("smart")){
+        if(dietMap.get("smart") && foodList.get('proteins')[i].smart != dietMap.get("smart")){
             continue;
         }
-        if(foodList.get('proteins')[i].vegan == dietMap.get("vegan")){
+        if(dietMap.get("vegan") && foodList.get('proteins')[i].vegan != dietMap.get("vegan")){
             continue;
         }
-        if(foodList.get('proteins')[i].vegetarian == dietMap.get("vegetarian")){
+        if(dietMap.get("vegetarian") && foodList.get('proteins')[i].vegetarian != dietMap.get("vegetarian")){
             continue;
         }
         result[2] = foodList.get('proteins')[i];
     }
-    
-    // result[0] = grain;
-    // result[1] = fruits;
-    // result[2] = protein;
     return result;
 }
 
 var map = new Map();
-map.set("diary", true);
+map.set("diary", false);
 map.set("egg", false);
-map.set("fish", true);
+map.set("fish", false);
 map.set("gluten", false);
-map.set("nuts", false);
-map.set("sesame", true);
+map.set("nuts", true);
+map.set("sesame", false);
 map.set("shellfish", false);
 map.set("soy", true);
-map.set("halal", true);
+map.set("halal", false);
 map.set("local", false);
 map.set("smart", false);
 map.set("vegan", false);
