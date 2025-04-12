@@ -2,9 +2,9 @@ import pymongo
 import json
 from pymongo import MongoClient, InsertOne
 
-client = pymongo.MongoClient("mongodb+srv://syang8:tI39ghVdmISktK8U@cluster.gzowamk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster")
-db = client.<DATABASE>
-collection = db.<COLLECTION>
+client = pymongo.MongoClient("COLLECTIONS STRING")
+db = client.main
+collection = db.menus
 requesting = []
 
 with open(r"<FILENAME>") as f:
@@ -14,3 +14,5 @@ with open(r"<FILENAME>") as f:
 
 result = collection.bulk_write(requesting)
 client.close()
+
+# python json_to_mongo.py
