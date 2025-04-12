@@ -11,8 +11,8 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/selection/:navId" element={<Selection />} />
         </Route>
+        <Route path="/selection/:navId" element={<Selection />} />
       </Routes>
     </BrowserRouter>
   );
