@@ -1,3 +1,26 @@
+.content-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px 0;
+}
+
+.centered-button {
+  flex: 1;
+  margin: 0 20px; 
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #e11118;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.centered-button:hover {
+  background-color: #c00d14;
+}
+
 .dietimage {
     background-image: url('./pics/vegs.png');
     width: 820px;
