@@ -48,7 +48,7 @@ function FoodObject(general, nutrition) {
 
 }
 
-async function run(mealtime, hall) {
+export async function generateFoodMap(mealtime, hall) {
     const uri = "mongodb+srv://syang8:tI39ghVdmISktK8U@cluster.gzowamk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster"
 
     const client = new MongoClient(uri);
@@ -115,9 +115,10 @@ async function run(mealtime, hall) {
     console.log("Returning map");
     return map;
 } 
-var wmap = await run("lunch", "yahen").catch(console.dir);
-console.log("PLEEASSE");
-console.log(wmap);
+// var wmap = await generateFoodMap("lunch", "yahen").catch(console.dir);
+// console.log("PLEEASSE");
+// console.log(wmap);
+
 
 
 
