@@ -19,3 +19,19 @@
   left: 0;
 }
 
+.north {
+  font-size: calc(4px + 2vmin);
+  color: white;
+  font-family: 'Merriweather', serif;
+  font-weight: 300;
+  text-align: center;
+}
+
+.northbar {
+  background-color: #e11118;
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}

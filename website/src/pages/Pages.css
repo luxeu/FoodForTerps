@@ -1,0 +1,9 @@
+.dietimage {
+    background-image: url('./pics/vegs.png');
+    width: 50%;
+    height: 920%;
+    position: flex;
+    background-position: 50% 50%;
+    background-size: 100%;
+    opacity: 0.8;
+}
