@@ -71,15 +71,18 @@
 
 .route-button {
     padding: 10px 20px;
-    background-color: #ff1100;
-    color: white;
-    border: none;
+    background-color: transparent;
+    color: #e11118;
+    border: 2px solid #e11118;
     border-radius: 5px;
     cursor: pointer;
+    font-family: 'Merriweather', serif;
+    transition: all 0.3s ease;
   }
   
   .route-button:hover {
-    background-color: #b30000;
+    background-color: #e11118;
+    color: white;
   }
   
   .my-button {
