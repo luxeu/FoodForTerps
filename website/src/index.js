@@ -16,7 +16,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />} />
         <Route path="/selection/:navId" element={<Selection />} />
-        <Route path="/calorie/:navId" element={<CalorieSelection />} />
+        <Route path="/calories/:navId" element={<CalorieSelection />} />
         <Route path="/diet/:navId" element={<DietSelection />} />
       </Routes>
     </BrowserRouter>
