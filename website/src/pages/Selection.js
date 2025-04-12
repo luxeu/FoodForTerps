@@ -102,7 +102,12 @@ function Selection() {
       );
   }
 
-  return <div>{content}</div>;
+  return (
+    <div className="selection-page">
+    <h2 className="hall-title">{getDisplayName(navId)} Selection</h2>
+    {content}
+  </div>
+  )
 }
 
 export default Selection;
