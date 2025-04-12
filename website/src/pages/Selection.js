@@ -30,7 +30,7 @@ function Selection() {
           </div>
           <RouteButton
             to="/diet/251north"
-            style={{ position: "absolute", top: "450px", left: "1075px" }}
+            style={{ position: "absolute", top: "450px", left: "1050px" }}
           >
             Dietary Plans
           </RouteButton>
@@ -39,7 +39,7 @@ function Selection() {
           </div>
           <RouteButton
             to="/calories/251north"
-            style={{ position: "absolute", top: "950px", left: "295px" }}
+            style={{ position: "absolute", top: "950px", left: "270px" }}
           >
             Calorie Plans
           </RouteButton>
@@ -54,7 +54,7 @@ function Selection() {
           </div>
           <RouteButton
             to="/diet/yahentamitsi"
-            style={{ position: "absolute", top: "450px", left: "1075px" }}
+            style={{ position: "absolute", top: "450px", left: "1050px" }}
           >
             Dietary Plans
           </RouteButton>
@@ -63,7 +63,7 @@ function Selection() {
           </div>
           <RouteButton
             to="/calories/yahentamitsi"
-            style={{ position: "absolute", top: "950px", left: "295px" }}
+            style={{ position: "absolute", top: "950px", left: "270px" }}
           >
             Calorie Plans
           </RouteButton>
@@ -78,7 +78,7 @@ function Selection() {
           </div>
           <RouteButton
             to="/diet/south"
-            style={{ position: "absolute", top: "450px", left: "1075px" }}
+            style={{ position: "absolute", top: "450px", left: "1050px" }}
           >
             Dietary Plans
           </RouteButton>
@@ -87,7 +87,7 @@ function Selection() {
           </div>
           <RouteButton
             to="/calories/yahentamitsi"
-            style={{ position: "absolute", top: "950px", left: "295px" }}
+            style={{ position: "absolute", top: "950px", left: "270px" }}
           >
             Calorie Plans
           </RouteButton>

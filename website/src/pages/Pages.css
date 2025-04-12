@@ -9,13 +9,13 @@
 
 .nutriimage {
     background-image: url('./pics/nutri.jpg');
-    width: 800px;
+    width: 760px;
     height: 500px;
     position: flex;
     background-position: 50% 50%;
     background-size: 100%;
     opacity: 0.8;
-    margin-left: 721px;
+    margin-left: 665px;
 }
 
 .dietimageY {
@@ -29,13 +29,13 @@
 
 .nutriimageY {
     background-image: url('./pics/nutri.jpg');
-    width: 800px;
+    width: 760px;
     height: 500px;
     position: flex;
     background-position: 50% 50%;
     background-size: 100%;
     opacity: 0.8;
-    margin-left: 625px;
+    margin-left: 665px;
 }
 
 .dietimageS {
@@ -49,13 +49,13 @@
 
 .nutriimageS {
     background-image: url('./pics/nutri.jpg');
-    width: 800px;
+    width: 760px;
     height: 500px;
     position: flex;
     background-position: 50% 50%;
     background-size: 100%;
     opacity: 0.8;
-    margin-left: 625px;
+    margin-left: 665px;
 }
 
 .route-button {
