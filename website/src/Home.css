@@ -9,7 +9,9 @@
 }
 
 .site-title {
-  font-size: 2rem;
+  margin-top: -5px;
+  margin-left: 20px;
+  font-size: 2.3rem;
 }
 
 .nav {
@@ -48,4 +50,8 @@
 
 .nav li:hover {
   background-color: #381313;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
 }

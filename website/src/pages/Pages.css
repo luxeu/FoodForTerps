@@ -1,76 +1,122 @@
+.content-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px 0;
+}
+
+.centered-button {
+  flex: 1;
+  margin: 0 20px; 
+  text-align: center;
+  padding: 0 20px;
+  margin-top: 400px;
+  font-size: 16px;
+  background-color: #e11118;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.centered-button:hover {
+  background-color: #c00d14;
+}
+
 .dietimage {
     background-image: url('./pics/vegs.png');
-    width: 760px;
+    width: 820px;
     height: 500px;
     background-position: 50% 50%;
     background-size: 100%;
     opacity: 0.8;
+    margin-left: 0; 
+    margin-right: auto;
 }
 
 .nutriimage {
     background-image: url('./pics/nutri.jpg');
-    width: 800px;
+    width: 820px;
     height: 500px;
     position: flex;
-    background-position: 50% 50%;
+    /* background-position: 50% 50%; */
     background-size: 100%;
     opacity: 0.8;
-    margin-left: 721px;
+    margin-left: auto; 
+    margin-right: 0;
 }
 
 .dietimageY {
     background-image: url('./pics/vegs.png');
-    width: 760px;
+    width: 820px;
     height: 500px;
     background-position: 50% 50%;
     background-size: 100%;
     opacity: 0.8;
+    margin-left: 0; 
+    margin-right: auto;
 }
 
 .nutriimageY {
     background-image: url('./pics/nutri.jpg');
-    width: 800px;
+    width: 820px;
     height: 500px;
     position: flex;
     background-position: 50% 50%;
     background-size: 100%;
     opacity: 0.8;
-    margin-left: 625px;
+    margin-left: auto; 
+    margin-right: 0;
 }
 
 .dietimageS {
     background-image: url('./pics/vegs.png');
-    width: 760px;
+    width: 820px;
     height: 500px;
     background-position: 50% 50%;
     background-size: 100%;
     opacity: 0.8;
+    margin-left: 0; 
+    margin-right: auto;
 }
 
 .nutriimageS {
     background-image: url('./pics/nutri.jpg');
-    width: 800px;
+    width: 820px;
     height: 500px;
     position: flex;
     background-position: 50% 50%;
     background-size: 100%;
     opacity: 0.8;
-    margin-left: 625px;
+    margin-left: auto; 
+    margin-right: 0;
 }
 
 .route-button {
     padding: 10px 20px;
-    background-color: #ff1100;
-    color: white;
-    border: none;
+    background-color: transparent;
+    color: #e11118;
+    border: 2px solid #e11118;
     border-radius: 5px;
     cursor: pointer;
+    font-family: 'Merriweather', serif;
+    transition: all 0.3s ease;
   }
   
   .route-button:hover {
-    background-color: #b30000;
+    background-color: #e11118;
+    color: white;
   }
   
   .my-button {
     margin: 10px;
+  }
+
+  .hall-title {
+    position: absolute;
+    top: 10px;
+    left: 45%;
+    font-size: calc(4px + 2vmin);
+    font-weight: 300;
+    font-family: 'Merriweather', serif;
+    color: white;
   }

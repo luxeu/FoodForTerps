@@ -4,105 +4,122 @@ import "./Pages.css";
 import RouteButton from "../components/RouteButton";
 
 function Selection() {
-  const { navId } = useParams();
+    const { navId } = useParams();
 
-  let content;
+    let content;
 
-  const getDisplayName = (id) => {
-    switch (id) {
-      case "251north":
-        return "251 North";
-      case "yahentamitsi":
-        return "Yahentamitsi";
-      case "south":
-        return "South Campus";
-      default:
-        return "";
+    const getDisplayName = (id) => {
+        switch (id) {
+            case "251north":
+                return "251 North";
+            case "yahentamitsi":
+                return "Yahentamitsi";
+            case "south":
+                return "South Campus";
+            default:
+                return "";
+        }
+    };
+
+    switch (navId) {
+        case "251north":
+            content = (
+                <nav className="northbar">
+                    <div className="content-container">
+                        <div className="dietimage">
+                            <img src="./pics/vegs.png" alt=""></img>
+                        </div>
+                        <RouteButton
+                            to="/diet/251north"
+                            className="centered-button"
+                        >
+                            Dietary Plans
+                        </RouteButton>
+                    </div>
+                    <div className="content-container">
+                        <RouteButton
+                            to="/calories/251north"
+                            className="centered-button"
+                        >
+                            Calorie Plans
+                        </RouteButton>
+                        <div className="nutriimage">
+                            <img src="./pics/nutri.jpg" alt=""></img>
+                        </div>
+                    </div>
+                </nav>
+            );
+            break;
+        case "yahentamitsi":
+            content = (
+                <nav className="Ybar">
+                    <div className="content-container">
+                        <div className="dietimageY">
+                            <img src="./pics/vegs.png" alt=""></img>
+                        </div>
+                        <RouteButton
+                            to="/diet/yahentamitsi"
+                            className="centered-button"
+                        >
+                            Dietary Plans
+                        </RouteButton>
+                    </div>
+                    <div className="content-container">
+                        <RouteButton
+                            to="/calories/yahentamitsi"
+                            className="centered-button"
+                        >
+                            Calorie Plans
+                        </RouteButton>
+                        <div className="nutriimageY">
+                            <img src="./pics/nutri.jpg" alt=""></img>
+                        </div>
+                    </div>
+                </nav>
+            );
+            break;
+        case "south":
+            content = (
+                <nav className="southbar">
+                    <div className="content-container">
+                        <div className="dietimageS">
+                            <img src="./pics/vegs.png" alt=""></img>
+                        </div>
+                        <RouteButton
+                            to="/diet/south"
+                            className="centered-button"
+                        >
+                            Dietary Plans
+                        </RouteButton>
+                    </div>
+                    <div className="content-container">
+                        <RouteButton
+                            to="/calories/south"
+                            className="centered-button"
+                        >
+                            Calorie Plans
+                        </RouteButton>
+                        <div className="nutriimageS">
+                            <img src="./pics/nutri.jpg" alt=""></img>
+                        </div>
+                    </div>
+                </nav>
+            );
+            break;
+        default:
+            content = (
+                <div>
+                    <h1>Invalid Destination</h1>
+                </div>
+            );
     }
-  };
 
-  switch (navId) {
-    case "251north":
-      content = (
-        <nav className="northbar">
-          <div className="dietimage">
-            <img src="./pics/vegs.png" alt=""></img>
-          </div>
-          <RouteButton
-            to="/diet/251north"
-            style={{ position: "absolute", top: "450px", left: "1075px" }}
-          >
-            Dietary Plans
-          </RouteButton>
-          <div className="nutriimage">
-            <img src="./pics/nutri.jpg" alt=""></img>
-          </div>
-          <RouteButton
-            to="/calories/251north"
-            style={{ position: "absolute", top: "950px", left: "295px" }}
-          >
-            Calorie Plans
-          </RouteButton>
-        </nav>
-      );
-      break;
-    case "yahentamitsi":
-      content = (
-        <nav className="Ybar">
-          <div className="dietimageY">
-            <img src="./pics/vegs.png" alt=""></img>
-          </div>
-          <RouteButton
-            to="/diet/yahentamitsi"
-            style={{ position: "absolute", top: "450px", left: "1075px" }}
-          >
-            Dietary Plans
-          </RouteButton>
-          <div className="nutriimageY">
-            <img src="./pics/nutri.jpg" alt=""></img>
-          </div>
-          <RouteButton
-            to="/calories/yahentamitsi"
-            style={{ position: "absolute", top: "950px", left: "295px" }}
-          >
-            Calorie Plans
-          </RouteButton>
-        </nav>
-      );
-      break;
-    case "south":
-      content = (
-        <nav className="southbar">
-          <div className="dietimageS">
-            <img src="./pics/vegs.png" alt=""></img>
-          </div>
-          <RouteButton
-            to="/diet/south"
-            style={{ position: "absolute", top: "450px", left: "1075px" }}
-          >
-            Dietary Plans
-          </RouteButton>
-          <div className="nutriimageS">
-            <img src="./pics/nutri.jpg" alt=""></img>
-          </div>
-          <RouteButton
-            to="/calories/yahentamitsi"
-            style={{ position: "absolute", top: "950px", left: "295px" }}
-          >
-            Calorie Plans
-          </RouteButton>
-        </nav>
-      );
-      break;
-    default:
-      content = (
-        <div>
-          <h1>Invalid Destination</h1>
+    return (
+        <div className="selection-page">
+            <h2 className="hall-title">{getDisplayName(navId)} Selection</h2>
+            {content}
         </div>
-      );
-  }
-
-  return <div>{content}</div>;
+    )
 }
 
 export default Selection;
