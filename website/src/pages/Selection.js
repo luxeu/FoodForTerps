@@ -52,9 +52,21 @@ function Selection() {
           <div className="dietimageY">
             <img src="./pics/vegs.png" alt=""></img>
           </div>
+          <RouteButton
+            to="/diet/yahentamitsi"
+            style={{ position: "absolute", top: "450px", left: "1075px" }}
+          >
+            Dietary Plans
+          </RouteButton>
           <div className="nutriimageY">
             <img src="./pics/nutri.jpg" alt=""></img>
           </div>
+          <RouteButton
+            to="/calories/yahentamitsi"
+            style={{ position: "absolute", top: "950px", left: "295px" }}
+          >
+            Calorie Plans
+          </RouteButton>
         </nav>
       );
       break;
@@ -64,9 +76,21 @@ function Selection() {
           <div className="dietimageS">
             <img src="./pics/vegs.png" alt=""></img>
           </div>
+          <RouteButton
+            to="/diet/south"
+            style={{ position: "absolute", top: "450px", left: "1075px" }}
+          >
+            Dietary Plans
+          </RouteButton>
           <div className="nutriimageS">
             <img src="./pics/nutri.jpg" alt=""></img>
           </div>
+          <RouteButton
+            to="/calories/yahentamitsi"
+            style={{ position: "absolute", top: "950px", left: "295px" }}
+          >
+            Calorie Plans
+          </RouteButton>
         </nav>
       );
       break;
