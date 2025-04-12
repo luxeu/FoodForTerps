@@ -5,12 +5,13 @@ import App from './App';
 import NavBar from './NavBar';
 import South from './South';
 import reportWebVitals from './reportWebVitals';
+import ImageNavigation from './ImageNavigation';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <NavBar />
-    <South />
+    <NavBar/>
+    <ImageNavigation/>
   </React.StrictMode>
 );
 
