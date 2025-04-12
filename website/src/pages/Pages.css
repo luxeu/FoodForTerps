@@ -6,11 +6,7 @@
 }
 
 .centered-button {
-  flex: 1;
-  margin: 0 20px; 
-  text-align: center;
-  padding: 0 20px;
-  margin-top: 400px;
+  padding: 10px 20px;
   font-size: 16px;
   background-color: #e11118;
   color: white;
@@ -20,6 +16,37 @@
 
 .centered-button:hover {
   background-color: #c00d14;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center; 
+  width: 40%; 
+  margin-top: 10px; 
+  margin-left: 50px;
+}
+
+.button-container-reverse {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center; 
+  width: 40%; 
+  margin-top: 10px; 
+  margin-right: 50px;
+}
+
+.description {
+  text-align: center;
+  margin-bottom: 10px; 
+  font-size: 32px;
+  color: #333;
+}
+
+.description p {
+  margin: 0;
 }
 
 .dietimage {
@@ -113,10 +140,44 @@
 
   .hall-title {
     position: absolute;
-    top: 10px;
+    top: 25px;
     left: 45%;
     font-size: calc(4px + 2vmin);
     font-weight: 300;
     font-family: 'Merriweather', serif;
     color: white;
+  }
+  .northcal, .Ycal, .southcal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #dropdown-basic-button.btn {
+    background-color: #e11118;
+    color: white;
+    border: 2px solid black;
+    font-family: 'Merriweather', serif;
+    padding: 12px 300px;
+    border-radius: 6px;
+    margin-top: 5px;
+    font-size: calc(4px + 2vmin);
+  }
+
+  .dropdown-menu .dropdown-item {
+    font-size: 1.2rem;
+    padding: 12px 310px;
+    font-family: 'Merriweather', serif;
+  }
+
+  .dropdown-menu .dropdown-item:hover {
+    background-color: #e11118;
+    color: white;
+  }
+
+  .range{
+    color: black;
+    font-family: 'Merriweather', serif;
+    font-size: calc(4px + 2vmin);
   }

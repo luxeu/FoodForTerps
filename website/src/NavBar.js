@@ -9,7 +9,6 @@ function NavBar() {
       </Link>
       <ul>
         <CustomLink to="/aboutus">About Us</CustomLink>
-        <CustomLink to="/howto">How To</CustomLink>
       </ul>
     </nav>
   )

@@ -29,20 +29,32 @@ function Selection() {
                         <div className="dietimage">
                             <img src="./pics/vegs.png" alt=""></img>
                         </div>
-                        <RouteButton
-                            to="/diet/251north"
-                            className="centered-button"
-                        >
-                            Dietary Plans
-                        </RouteButton>
+                        <div className="button-container-reverse">
+                            <div className="description">
+                                <p>Explore tailor made dietary plans to improve and maintain your health.</p>
+                                <br></br>
+                            </div>
+                            <RouteButton
+                                to="/diet/251north"
+                                className="centered-button"
+                            >
+                                Dietary Plans
+                            </RouteButton>
+                        </div>
                     </div>
                     <div className="content-container">
-                        <RouteButton
-                            to="/calories/251north"
-                            className="centered-button"
-                        >
-                            Calorie Plans
-                        </RouteButton>
+                        <div className="button-container">
+                            <div className="description">
+                                <p>Custom made meal plans to fit your calorie needs - with your goals in mind.</p>
+                                <br></br>
+                            </div>
+                            <RouteButton
+                                to="/calories/251north"
+                                className="centered-button"
+                            >
+                                Calorie Plans
+                            </RouteButton>
+                        </div>
                         <div className="nutriimage">
                             <img src="./pics/nutri.jpg" alt=""></img>
                         </div>
@@ -57,20 +69,32 @@ function Selection() {
                         <div className="dietimageY">
                             <img src="./pics/vegs.png" alt=""></img>
                         </div>
-                        <RouteButton
-                            to="/diet/yahentamitsi"
-                            className="centered-button"
-                        >
-                            Dietary Plans
-                        </RouteButton>
+                        <div className="button-container-reverse">
+                            <div className="description">
+                                <p>Explore tailor made dietary plans to improve and maintain your health.</p>
+                                <br></br>
+                            </div>
+                            <RouteButton
+                                to="/diet/yahentamitsi"
+                                className="centered-button"
+                            >
+                                Dietary Plans
+                            </RouteButton>
+                        </div>
                     </div>
                     <div className="content-container">
-                        <RouteButton
-                            to="/calories/yahentamitsi"
-                            className="centered-button"
-                        >
-                            Calorie Plans
-                        </RouteButton>
+                        <div className="button-container">
+                            <div className="description">
+                                <p>Custom made meal plans to fit your calorie needs - with your goals in mind.</p>
+                                <br></br>
+                            </div>
+                            <RouteButton
+                                to="/calories/yahentamitsi"
+                                className="centered-button"
+                            >
+                                Calorie Plans
+                            </RouteButton>
+                        </div>
                         <div className="nutriimageY">
                             <img src="./pics/nutri.jpg" alt=""></img>
                         </div>
@@ -85,24 +109,37 @@ function Selection() {
                         <div className="dietimageS">
                             <img src="./pics/vegs.png" alt=""></img>
                         </div>
-                        <RouteButton
-                            to="/diet/south"
-                            className="centered-button"
-                        >
-                            Dietary Plans
-                        </RouteButton>
+                        <div className="button-container-reverse">
+                            <div className="description">
+                                <p>Explore tailor made dietary plans to improve and maintain your health.</p>
+                                <br></br>
+                            </div>
+                            <RouteButton
+                                to="/diet/south"
+                                className="centered-button"
+                            >
+                                Dietary Plans
+                            </RouteButton>
+                        </div>
                     </div>
                     <div className="content-container">
-                        <RouteButton
-                            to="/calories/south"
-                            className="centered-button"
-                        >
-                            Calorie Plans
-                        </RouteButton>
+                        <div className="button-container">
+                            <div className="description">
+                                <p>Custom made meal plans to fit your calorie needs - with your goals in mind.</p>
+                                <br></br>
+                            </div>
+                            <RouteButton
+                                to="/calories/south"
+                                className="centered-button"
+                            >
+                                Calorie Plans
+                            </RouteButton>
+                        </div>
                         <div className="nutriimageS">
                             <img src="./pics/nutri.jpg" alt=""></img>
                         </div>
                     </div>
+
                 </nav>
             );
             break;
