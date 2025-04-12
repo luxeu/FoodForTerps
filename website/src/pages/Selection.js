@@ -18,10 +18,10 @@ function Selection() {
                     <div className="dietimage">
                         <img src="./pics/vegs.png" alt="" ></img>
                     </div>
-                    <RouteButton to="/selection/diet/${navId}" style={{ position: 'relative', top: '50px', left: '1000px'}}>
+                    <RouteButton to="/selection/diet/251north" style={{ position: 'relative', top: '50px', left: '1000px'}}>
                         Dietary Plans
                     </RouteButton>
-                    <RouteButton to="/selection/calories/${navId}" style={{ position: 'relative', top: '350px', left: '80px'}}>
+                    <RouteButton to="/selection/calories/251north" style={{ position: 'relative', top: '350px', left: '80px'}}>
                         Calorie Plans
                     </RouteButton>
                 </nav>

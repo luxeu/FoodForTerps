@@ -8,7 +8,6 @@ const Layout = () => {
         <>
             <React.StrictMode>
                 <ImageNavigation />
-                <NavBar />
                 <Outlet />
             </React.StrictMode>
         </>
