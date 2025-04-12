@@ -119,3 +119,18 @@
     font-family: 'Merriweather', serif;
     color: white;
   }
+  
+  #dropdown-basic-button.btn {
+    background-color: #e11118;
+    color: white;
+    border: 2px solid black;
+    font-family: 'Merriweather', serif;
+    padding: 10px 20px;
+    border-radius: 6px;
+  }
+
+  .range{
+    color: black;
+    font-family: 'Merriweather', serif;
+    font-size: calc(4px + 2vmin);
+  }
