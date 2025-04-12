@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/FoodForTerps/static/css/main.8925b5a0.css",
-    "main.js": "/FoodForTerps/static/js/main.25b0de6f.js",
+    "main.css": "/FoodForTerps/static/css/main.d1a1c6af.css",
+    "main.js": "/FoodForTerps/static/js/main.4a9b3b37.js",
     "static/js/453.a88df8cd.chunk.js": "/FoodForTerps/static/js/453.a88df8cd.chunk.js",
     "static/media/vegs.png": "/FoodForTerps/static/media/vegs.c77c30af0e6aba7c7889.png",
     "static/media/ya.png": "/FoodForTerps/static/media/ya.c0e5cf59ca6e0cd8f360.png",
+    "static/media/us.jpg": "/FoodForTerps/static/media/us.c6ce54b9876b6996801b.jpg",
     "static/media/251_north.png": "/FoodForTerps/static/media/251_north.0c6959ab8e4d2f021877.png",
     "static/media/south_dining.png": "/FoodForTerps/static/media/south_dining.125cf8ac1f6efc02c4f9.png",
     "static/media/nutri.jpg": "/FoodForTerps/static/media/nutri.ccf1c93d15bb89512f65.jpg",
     "index.html": "/FoodForTerps/index.html",
-    "main.8925b5a0.css.map": "/FoodForTerps/static/css/main.8925b5a0.css.map",
-    "main.25b0de6f.js.map": "/FoodForTerps/static/js/main.25b0de6f.js.map",
+    "main.d1a1c6af.css.map": "/FoodForTerps/static/css/main.d1a1c6af.css.map",
+    "main.4a9b3b37.js.map": "/FoodForTerps/static/js/main.4a9b3b37.js.map",
     "453.a88df8cd.chunk.js.map": "/FoodForTerps/static/js/453.a88df8cd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8925b5a0.css",
-    "static/js/main.25b0de6f.js"
+    "static/css/main.d1a1c6af.css",
+    "static/js/main.4a9b3b37.js"
   ]
 }
