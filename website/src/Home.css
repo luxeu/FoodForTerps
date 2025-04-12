@@ -8,30 +8,43 @@
   font-weight: 300;
 }
 
-.navbar {
+.site-title {
+  font-size: 2rem;
+}
+
+.nav {
   background-color: #e11118;
+  color: aliceblue;
   width: 100%;
-  height: 50px;
+  height: 70px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav a {
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
   display: flex;
   align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
+  padding: .25rem;
 }
 
-.north {
-  font-size: calc(4px + 2vmin);
-  color: white;
-  font-family: 'Merriweather', serif;
-  font-weight: 300;
-  text-align: center;
+.nav li.active {
+  background-color: #e37f7f;
 }
 
-.northbar {
-  background-color: #e11118;
-  width: 100%;
-  height: 50px;
-  position: fixed;
-  top: 0;
-  left: 0;
+.nav li:hover {
+  background-color: #381313;
 }
