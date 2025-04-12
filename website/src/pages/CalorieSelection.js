@@ -5,8 +5,21 @@ import { useParams } from 'react-router-dom';
 function CalorieSelection() {
     const { navId } = useParams();
 
+    const getDisplayName = (id) => {
+        switch (id) {
+            case "251north":
+                return "251 North";
+            case "yahentamitsi":
+                return "Yahentamitsi";
+            case "south":
+                return "South Campus";
+            default:
+                return "";
+        }
+    };
+
     let content;
-    
+
     switch (navId) {
         case '251north':
             content = (
@@ -38,7 +51,10 @@ function CalorieSelection() {
     }
 
     return <div>{
-        content
+        <div className="selection-page">
+            <h2 className="hall-title">{getDisplayName(navId)} Selection</h2>
+            {content}
+        </div>
     }</div>;
 }
 
