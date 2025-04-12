@@ -6,11 +6,7 @@
 }
 
 .centered-button {
-  flex: 1;
-  margin: 0 20px; 
-  text-align: center;
-  padding: 0 20px;
-  margin-top: 400px;
+  padding: 10px 20px;
   font-size: 16px;
   background-color: #e11118;
   color: white;
@@ -20,6 +16,37 @@
 
 .centered-button:hover {
   background-color: #c00d14;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center; 
+  width: 40%; 
+  margin-top: 10px; 
+  margin-left: 50px;
+}
+
+.button-container-reverse {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center; 
+  width: 40%; 
+  margin-top: 10px; 
+  margin-right: 50px;
+}
+
+.description {
+  text-align: center;
+  margin-bottom: 10px; 
+  font-size: 32px;
+  color: #333;
+}
+
+.description p {
+  margin: 0;
 }
 
 .dietimage {
