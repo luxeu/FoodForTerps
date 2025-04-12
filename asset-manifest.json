@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/foodforterps/static/css/main.efbf7cb4.css",
+    "main.css": "/foodforterps/static/css/main.d4d32f36.css",
     "main.js": "/foodforterps/static/js/main.163e2b6a.js",
     "static/js/453.a88df8cd.chunk.js": "/foodforterps/static/js/453.a88df8cd.chunk.js",
     "static/media/vegs.png": "/foodforterps/static/media/vegs.c77c30af0e6aba7c7889.png",
@@ -9,12 +9,12 @@
     "static/media/south_dining.png": "/foodforterps/static/media/south_dining.125cf8ac1f6efc02c4f9.png",
     "static/media/nutri.jpg": "/foodforterps/static/media/nutri.ccf1c93d15bb89512f65.jpg",
     "index.html": "/foodforterps/index.html",
-    "main.efbf7cb4.css.map": "/foodforterps/static/css/main.efbf7cb4.css.map",
+    "main.d4d32f36.css.map": "/foodforterps/static/css/main.d4d32f36.css.map",
     "main.163e2b6a.js.map": "/foodforterps/static/js/main.163e2b6a.js.map",
     "453.a88df8cd.chunk.js.map": "/foodforterps/static/js/453.a88df8cd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.efbf7cb4.css",
+    "static/css/main.d4d32f36.css",
     "static/js/main.163e2b6a.js"
   ]
 }
