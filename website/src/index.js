@@ -8,6 +8,7 @@ import Selection from './pages/Selection';
 import NavBar from './NavBar';
 import DietSelection from './pages/DietSelection';
 import CalorieSelection from './pages/CalorieSelection';
+import AboutUs from './pages/AboutUs';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/selection/:navId" element={<Selection />} />
         <Route path="/calories/:navId" element={<CalorieSelection />} />
         <Route path="/diet/:navId" element={<DietSelection />} />
+        <Route path="/aboutus" element={<AboutUs />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,30 +1,19 @@
 import {MongoClient} from "mongodb"
 
-
-function findFoodNut(food_name, nut_array) {
-    nut_array.forEach(element => {
-        nut_array.forEach(element => {
-            if(element.name == food_name) {
-                return element;
-            }
-        });
-    });
-    return null;
-}
-
-function sortedInsert(array, element) {
+async function sortedInsert(array, element) {
     if(array.length == 0) {
         array.push(element);
-        // console.log("pushed");
+        console.log("pushed");
     }
     else {
         var i = 0;
-        while(element.nutrition.calories > array[i].nutrition.calories) {
+        while(i < array.length && element.nutrition.Calories > array[i].nutrition.Calories) {
             i++;
         }
         array.splice(i,0,element);
-        // console.log("spliced");
+        console.log("spliced at " + i);
     }
+    return;
 }
 
 function FoodObject(general, nutrition) {
@@ -86,16 +75,16 @@ export async function generateFoodMap(mealtime, hall) {
                 var foodObj = new FoodObject(food, foodNut);
                 // console.log(foodObj.name + " grabbed");
                 if(foodObj.food_group == "Protein") {
-                    sortedInsert(proteins, foodObj);
+                    await sortedInsert(proteins, foodObj);
                 }
                 else if (foodObj.food_group == "Grain") {
-                    sortedInsert(grains, foodObj);
+                    await sortedInsert(grains, foodObj);
                 }
                 else if (foodObj.food_group == "Fruits") {
-                    sortedInsert(fruits, foodObj);
+                    await sortedInsert(fruits, foodObj);
                 }
                 else {
-                    sortedInsert(other, foodObj);
+                    await sortedInsert(other, foodObj);
                 }
                 // console.log(foodObj.name + " sorted");
             }
