@@ -63,7 +63,6 @@ def list_menu(meal_time) -> list:
             ## Build food object and append to foodlist
             registered_food = {
                 "name": name.string,
-                "hall": "South",
                 "location": location.string,
                 "dairy": dairy,
                 "egg": egg,
@@ -84,19 +83,27 @@ def list_menu(meal_time) -> list:
     return foodlist
 
 
-## default to scraping south dining menu
+## default to scraping yahentamitsi dining menu
 def main(dining_hall_ID: int = 19):
     ## Connect to MongoDB
     mongoURL = "mongodb+srv://syang8:tI39ghVdmISktK8U@cluster.gzowamk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster"
     client= MongoClient(mongoURL)
     db = client["FoodForTerps"]
     users_collection = db["General"]
+    print("Connected to Mongo creating General Collection")
     
+    print("Dropping existing collection")
+    delete_result = users_collection.delete_many({})
+    print("Dropped Collection")
+
     ## Record date
+    print("Retrieving Date")
     today = date.today()
     weekend = (today.weekday() > 4)
+    print("Retrieved Date")
 
     ## Specify dining hall
+    print("Retrieving Dining Hall")
     dining_hall = dining_hall_ID
     hallname = "unknown_hall"
     if dining_hall == 16:
@@ -105,6 +112,7 @@ def main(dining_hall_ID: int = 19):
         hallname = "yahen"
     elif dining_hall == 51:
         hallname = "251"
+    print("Retrieved Dining Hall: " + hallname + "")
 
     ## Initialize mealtime lists
     breakfast_list = []
@@ -112,50 +120,55 @@ def main(dining_hall_ID: int = 19):
     dinner_list = []
 
     ## Build URL and grab html document
+    print("Building URL")
     url = "https://nutrition.umd.edu/?locationNum={location}&dtdate={month:02d}/{day:02d}/{year:0004d}".format(
         location=dining_hall,
         month=today.month,
         day=today.day,
         year=today.year)
+    print("Accessing HTML")
     webpage = urllib.request.urlopen(url)
-    
+    print("Accessed HTML" if webpage != None else "Failed!")
+
     ## Parse webpage into soup
+    print("Parsing to Soup")
     webpage_soup = BeautifulSoup(webpage, "html.parser")
     body = webpage_soup.body
     
     ## Scraping food info for each mealtime and place them in their own list
     ## Weekends only have brunch and dinner (will treat as lunch and dinner). Weekdays have Breakfast Lunch and Dinner
+    print("Preparing to scrape")
     if weekend:
+        print("Today is the weekend! Scraping lunch and dinner")
         lunch = body.find("div", {"id":"pane-1"})
         dinner = body.find("div", {"id":"pane-2"})  
         lunch_list = list_menu(lunch)
         dinner_list = list_menu(dinner) 
     else:
+        print("Today is a weekday! Scraping breakfast, lunch, and dinner")
         breakfast = body.find("div", {"id":"pane-1"})
         lunch = body.find("div", {"id":"pane-2"})
         dinner = body.find("div", {"id":"pane-3"})
         breakfast_list = list_menu(breakfast)
         lunch_list = list_menu(lunch)
         dinner_list = list_menu(dinner)
-    
-    ## Convert lists to JSON
-    breakfast_list_json = json.dumps(breakfast_list)
-    lunch_list_json = json.dumps(lunch_list)
-    dinner_list_json = json.dumps(dinner_list)
 
     ## build object to push to MongoDB
+    print("Building hall object to push")
     registered_hall = {
         "name" : hallname,
-        "breakfast_list" : breakfast_list_json,
-        "lunch_list": lunch_list_json,
-        "dinner_list": dinner_list_json
+        "breakfast_list" : breakfast_list,
+        "lunch_list": lunch_list,
+        "dinner_list": dinner_list
     }
-    # print(json.dumps(registered_hall))
-    
+    print("Object Built:")
+    print(json.dumps(registered_hall))
+
+    print("Pushing Hall object to MongoDB")
     users_collection.insert_one(registered_hall)
-   
+    print ("Exiting")
 
 if __name__ == '__main__' :
-    # delete_result = users_collection.delete_one({"hall": "South"})
+    
     # print(delete_result)
     main()
