@@ -1,9 +1,59 @@
 .dietimage {
     background-image: url('./pics/vegs.png');
-    width: 50%;
-    height: 920%;
+    width: 760px;
+    height: 500px;
+    background-position: 50% 50%;
+    background-size: 100%;
+    opacity: 0.8;
+}
+
+.nutriimage {
+    background-image: url('./pics/nutri.jpg');
+    width: 800px;
+    height: 500px;
     position: flex;
     background-position: 50% 50%;
     background-size: 100%;
     opacity: 0.8;
+    margin-left: 625px;
+}
+
+.dietimageY {
+    background-image: url('./pics/vegs.png');
+    width: 760px;
+    height: 500px;
+    background-position: 50% 50%;
+    background-size: 100%;
+    opacity: 0.8;
+}
+
+.nutriimageY {
+    background-image: url('./pics/nutri.jpg');
+    width: 800px;
+    height: 500px;
+    position: flex;
+    background-position: 50% 50%;
+    background-size: 100%;
+    opacity: 0.8;
+    margin-left: 625px;
+}
+
+.dietimageS {
+    background-image: url('./pics/vegs.png');
+    width: 760px;
+    height: 500px;
+    background-position: 50% 50%;
+    background-size: 100%;
+    opacity: 0.8;
+}
+
+.nutriimageS {
+    background-image: url('./pics/nutri.jpg');
+    width: 800px;
+    height: 500px;
+    position: flex;
+    background-position: 50% 50%;
+    background-size: 100%;
+    opacity: 0.8;
+    margin-left: 625px;
 }
