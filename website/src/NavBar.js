@@ -8,8 +8,8 @@ function NavBar() {
         FoodForTerps
       </Link>
       <ul>
-        <Link to="/aboutus">About Us</Link>
-        <Link to="/howto">How To</Link>
+        <CustomLink to="/aboutus">About Us</CustomLink>
+        <CustomLink to="/howto">How To</CustomLink>
       </ul>
     </nav>
   )
