@@ -1,61 +1,72 @@
 .dietimage {
     background-image: url('./pics/vegs.png');
-    width: 760px;
+    width: 820px;
     height: 500px;
     background-position: 50% 50%;
     background-size: 100%;
     opacity: 0.8;
+    margin-left: 0; 
+    margin-right: auto;
 }
 
 .nutriimage {
     background-image: url('./pics/nutri.jpg');
-    width: 760px;
+    width: 820px;
     height: 500px;
     position: flex;
-    background-position: 50% 50%;
+    /* background-position: 50% 50%; */
     background-size: 100%;
     opacity: 0.8;
-    margin-left: 665px;
+    margin-left: auto; 
+    margin-right: 0;
 }
 
 .dietimageY {
     background-image: url('./pics/vegs.png');
-    width: 760px;
+    width: 820px;
     height: 500px;
     background-position: 50% 50%;
     background-size: 100%;
     opacity: 0.8;
+    margin-left: 0; 
+    margin-right: auto;
 }
 
 .nutriimageY {
     background-image: url('./pics/nutri.jpg');
-    width: 760px;
+    width: 820px;
     height: 500px;
     position: flex;
     background-position: 50% 50%;
     background-size: 100%;
     opacity: 0.8;
     margin-left: 665px;
+    margin-left: auto; 
+    margin-right: 0;
 }
 
 .dietimageS {
     background-image: url('./pics/vegs.png');
-    width: 760px;
+    width: 820px;
     height: 500px;
     background-position: 50% 50%;
     background-size: 100%;
     opacity: 0.8;
+    margin-left: 0; 
+    margin-right: auto;
 }
 
 .nutriimageS {
     background-image: url('./pics/nutri.jpg');
-    width: 760px;
+    width: 820px;
     height: 500px;
     position: flex;
     background-position: 50% 50%;
     background-size: 100%;
     opacity: 0.8;
     margin-left: 665px;
+    margin-left: auto; 
+    margin-right: 0;
 }
 
 .route-button {
