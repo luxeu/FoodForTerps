@@ -19,10 +19,10 @@ for url in general_soup.find_all('a'):
             soup = bs.BeautifulSoup(sauce, 'lxml')
 
             name = soup.title.get_text()
-            print(name)
-
+            cal_finder = soup.find_all('p')
             div = soup.find_all(class_= 'nutfactstopnutrient')
 
+            calories = int(float(cal_finder[1].get_text()))
             total_fat = int(float(div[0].get_text().split()[-1][:-1]))
             total_carbs = int(float(div[2].get_text().split()[-1][:-1]))
             total_carbs_daily = int(float(div[3].get_text().split()[-1][:-1]))
@@ -75,6 +75,7 @@ for url in general_soup.find_all('a'):
                 "name": name,
                 "food_group": food_group,
                 "nutrition": {
+                    "Calories": calories,
                     "total_fat": total_fat,
                     "total_carbs": total_carbs,
                     "total_carbs_daily": total_carbs_daily,
