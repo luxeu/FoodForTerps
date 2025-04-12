@@ -57,3 +57,20 @@
     opacity: 0.8;
     margin-left: 625px;
 }
+
+.route-button {
+    padding: 10px 20px;
+    background-color: #ff1100;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .route-button:hover {
+    background-color: #b30000;
+  }
+  
+  .my-button {
+    margin: 10px;
+  }
