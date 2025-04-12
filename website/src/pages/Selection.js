@@ -25,24 +25,21 @@ function Selection() {
     case "251north":
       content = (
         <nav className="northbar">
-          <div>
-            <h1 className="north">251 North Selection</h1>
-          </div>
           <div className="dietimage">
             <img src="./pics/vegs.png" alt=""></img>
           </div>
+          <RouteButton
+            to="/diet/251north"
+            style={{ position: "absolute", top: "450px", left: "1075px" }}
+          >
+            Dietary Plans
+          </RouteButton>
           <div className="nutriimage">
             <img src="./pics/nutri.jpg" alt=""></img>
           </div>
           <RouteButton
-            to="/diet/251north"
-            style={{ position: "relative", top: "50px", left: "1000px" }}
-          >
-            Dietary Plans
-          </RouteButton>
-          <RouteButton
             to="/calories/251north"
-            style={{ position: "relative", top: "350px", left: "80px" }}
+            style={{ position: "absolute", top: "950px", left: "295px" }}
           >
             Calorie Plans
           </RouteButton>
