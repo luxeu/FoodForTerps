@@ -9,6 +9,7 @@
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.3.5",
+    "mongodb": "^6.15.0",
     "react": "^19.1.0",
     "react-bootstrap": "^2.10.9",
     "react-bootstrap-validation": "^0.1.11",
@@ -19,7 +20,10 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "mongograb": "node /website/src/algorithmn/MongoGrabber.js",
+    "calorie": "node /website/src/algorithmn/CalorieDetector.js",
     "start": "react-scripts start",
+    "start-all": "npm run mongograb && npm run calorie && npm run start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

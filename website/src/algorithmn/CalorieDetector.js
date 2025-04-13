@@ -31,14 +31,15 @@ export async function CalorieDetector(time, location, index, calorieMin, calorie
     result[1] = fruit;
     result[2] = protein;
     return result;
-
 }
 
+export default CalorieDetector
 
-// const test = await CalorieDetector("lunch", "yahen", 0, 500, 1000);
-// console.log(test);
 
-async function DietDetector(time, location, dietMap){
+const test = await CalorieDetector("lunch", "yahen", 0, 500, 1000);
+console.log(test);
+
+export async function DietDetector(time, location, dietMap){
     const foodList = await generateFoodMap(time, location);
 
     // const grain = foodList.get('grains');
@@ -180,7 +181,7 @@ async function DietDetector(time, location, dietMap){
     return result;
 }
 
-function GetMealCalories(meal) {
+export function GetMealCalories(meal) {
     var calories = 0;
     for(const food of meal) {
         calories += food.nutrition.Calories;
@@ -188,28 +189,28 @@ function GetMealCalories(meal) {
     return calories;
 }
 
-function GetMealCarbs(meal) {
+export function GetMealCarbs(meal) {
     var carbs = 0;
     for(const food of meal) {
         carbs += food.nutrition.total_carbs;
     }
     return carbs;
 }
-function GetMealFat(meal) {
+export function GetMealFat(meal) {
     var fat = 0;
     for(const food of meal) {
         fat += food.nutrition.total_fat;
     }
     return fat;
 }
-function GetMealProtein(meal) {
+export function GetMealProtein(meal) {
     var protein = 0;
     for(const food of meal) {
         protein += food.nutrition.protein;
     }
     return protein;
 }
-function GetMealSugars(meal) {
+export function GetMealSugars(meal) {
     var sugar = 0;
     for(const food of meal) {
         sugar += food.nutrition.total_sugars;
@@ -235,3 +236,5 @@ function GetMealSugars(meal) {
 
 // const check = await DietDetector("lunch", "yahen", map);
 // console.log(check);
+
+// export default CalorieDetector;
