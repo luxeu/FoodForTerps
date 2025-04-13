@@ -91,10 +91,6 @@ def main(dining_hall_ID: int = 19):
     db = client["FoodForTerps"]
     users_collection = db["General"]
     print("Connected to Mongo creating General Collection")
-    
-    print("Dropping existing collection")
-    delete_result = users_collection.delete_many({})
-    print("Dropped Collection")
 
     ## Record date
     print("Retrieving Date")
@@ -107,11 +103,11 @@ def main(dining_hall_ID: int = 19):
     dining_hall = dining_hall_ID
     hallname = "unknown_hall"
     if dining_hall == 16:
-        hallname = "south"
+        hallname = "South Campus"
     elif dining_hall == 19:
-        hallname = "yahen"
+        hallname = "Yahentamitsi"
     elif dining_hall == 51:
-        hallname = "251"
+        hallname = "251 North"
     print("Retrieved Dining Hall: " + hallname + "")
 
     ## Initialize mealtime lists
@@ -169,6 +165,14 @@ def main(dining_hall_ID: int = 19):
     print ("Exiting")
 
 if __name__ == '__main__' :
-    
+    mongoURL = "mongodb+srv://syang8:tI39ghVdmISktK8U@cluster.gzowamk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster"
+    client= MongoClient(mongoURL)
+    db = client["FoodForTerps"]
+    users_collection = db["General"]
+    print("Dropping existing collection")
+    delete_result = users_collection.delete_many({})
+    print("Dropped Collection")
     # print(delete_result)
     main()
+    main(16)
+    main(51)
