@@ -180,6 +180,44 @@ async function DietDetector(time, location, dietMap){
     return result;
 }
 
+function GetMealCalories(meal) {
+    var calories = 0;
+    for(const food of meal) {
+        calories += food.nutrition.Calories;
+    }
+    return calories;
+}
+
+function GetMealCarbs(meal) {
+    var carbs = 0;
+    for(const food of meal) {
+        carbs += food.nutrition.total_carbs;
+    }
+    return carbs;
+}
+function GetMealFat(meal) {
+    var fat = 0;
+    for(const food of meal) {
+        fat += food.nutrition.total_fat;
+    }
+    return fat;
+}
+function GetMealProtein(meal) {
+    var protein = 0;
+    for(const food of meal) {
+        protein += food.nutrition.protein;
+    }
+    return protein;
+}
+function GetMealSugars(meal) {
+    var sugar = 0;
+    for(const food of meal) {
+        sugar += food.nutrition.total_sugars;
+    }
+    return sugar;
+}
+
+
 var map = new Map();
 map.set("diary", false);
 map.set("egg", false);
