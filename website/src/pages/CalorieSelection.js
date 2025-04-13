@@ -6,7 +6,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import CalorieDetector from '../algorithmn/CalorieDetector.js';
 
-function CalorieSelection() {
+async function CalorieSelection() {
     const { navId } = useParams();
     const [selectedRange, setSelectedRange] = useState(null);
 
@@ -48,8 +48,11 @@ function CalorieSelection() {
                     )}
                 </div>
             );
-            const result = []
-            result = CalorieDetector("lunch", navId, 0, selectedRange, selectedRange+500)
+            console.log(navId, selectedRange);
+            const response = await fetch('http://localhost:5000/ap[i?time=lunch&location=' + navId + '&minCalories=' + selectedRange + '&maxCalories=' + (selectedRange+ 500));
+            const data = await response.json();
+            console.log(data.meal);
+            // const result = CalorieDetector("lunch", navId, 0, selectedRange, selectedRange+500)
 
             // content = (
             //     <div>
