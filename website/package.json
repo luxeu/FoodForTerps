@@ -1,8 +1,8 @@
 {
   "name": "foodforterps",
   "version": "0.1.0",
-  "homepage": "https://luxeu.github.io/FoodForTerps",
   "private": true,
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",

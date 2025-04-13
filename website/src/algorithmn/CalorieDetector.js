@@ -1,7 +1,7 @@
 import {generateFoodMap} from "./MongoGrabber.js";
 // const food = require('./MongoGrabber.js');
 
-async function CalorieDetector(time, location, index, calorieMin, calorieMax){
+export async function CalorieDetector(time, location, index, calorieMin, calorieMax){
     // const foodList = await food.generateFoodMap(time, location);
     const foodList = await generateFoodMap(time, location);
     // console.log("Grabbing Grains");
