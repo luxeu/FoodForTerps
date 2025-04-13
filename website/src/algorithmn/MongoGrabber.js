@@ -37,6 +37,7 @@ function FoodObject(general, nutrition) {
 
 }
 
+
 export async function generateFoodMap(mealtime, hall) {
     const uri = "mongodb+srv://syang8:tI39ghVdmISktK8U@cluster.gzowamk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster"
 

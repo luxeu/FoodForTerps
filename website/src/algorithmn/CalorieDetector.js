@@ -36,8 +36,8 @@ async function CalorieDetector(time, location, index, calorieMin, calorieMax){
 export default CalorieDetector
 
 
-const fuck = await CalorieDetector("lunch", "yahen", 0, 500, 1000);
-console.log(fuck);
+// const test = await CalorieDetector("lunch", "yahen", 0, 500, 1000);
+// console.log(test);
 
 async function DietDetector(time, location, dietMap){
     const foodList = await generateFoodMap(time, location);
@@ -181,20 +181,58 @@ async function DietDetector(time, location, dietMap){
     return result;
 }
 
-var map = new Map();
-map.set("diary", false);
-map.set("egg", false);
-map.set("fish", false);
-map.set("gluten", false);
-map.set("nuts", true);
-map.set("sesame", false);
-map.set("shellfish", false);
-map.set("soy", true);
-map.set("halal", false);
-map.set("local", false);
-map.set("smart", false);
-map.set("vegan", false);
-map.set("vegetarian", false);
+function GetMealCalories(meal) {
+    var calories = 0;
+    for(const food of meal) {
+        calories += food.nutrition.Calories;
+    }
+    return calories;
+}
 
-const check = await DietDetector("lunch", "yahen", map);
-console.log(check);
+function GetMealCarbs(meal) {
+    var carbs = 0;
+    for(const food of meal) {
+        carbs += food.nutrition.total_carbs;
+    }
+    return carbs;
+}
+function GetMealFat(meal) {
+    var fat = 0;
+    for(const food of meal) {
+        fat += food.nutrition.total_fat;
+    }
+    return fat;
+}
+function GetMealProtein(meal) {
+    var protein = 0;
+    for(const food of meal) {
+        protein += food.nutrition.protein;
+    }
+    return protein;
+}
+function GetMealSugars(meal) {
+    var sugar = 0;
+    for(const food of meal) {
+        sugar += food.nutrition.total_sugars;
+    }
+    return sugar;
+}
+
+
+// var map = new Map();
+// map.set("diary", false);
+// map.set("egg", false);
+// map.set("fish", false);
+// map.set("gluten", false);
+// map.set("nuts", true);
+// map.set("sesame", false);
+// map.set("shellfish", false);
+// map.set("soy", true);
+// map.set("halal", false);
+// map.set("local", false);
+// map.set("smart", false);
+// map.set("vegan", false);
+// map.set("vegetarian", false);
+
+// const check = await DietDetector("lunch", "yahen", map);
+// console.log(check);
