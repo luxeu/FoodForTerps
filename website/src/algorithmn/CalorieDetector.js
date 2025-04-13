@@ -35,8 +35,8 @@ async function CalorieDetector(time, location, index, calorieMin, calorieMax){
 }
 
 
-const fuck = await CalorieDetector("lunch", "yahen", 0, 500, 1000);
-console.log(fuck);
+// const test = await CalorieDetector("lunch", "yahen", 0, 500, 1000);
+// console.log(test);
 
 async function DietDetector(time, location, dietMap){
     const foodList = await generateFoodMap(time, location);
@@ -218,20 +218,20 @@ function GetMealSugars(meal) {
 }
 
 
-var map = new Map();
-map.set("diary", false);
-map.set("egg", false);
-map.set("fish", false);
-map.set("gluten", false);
-map.set("nuts", true);
-map.set("sesame", false);
-map.set("shellfish", false);
-map.set("soy", true);
-map.set("halal", false);
-map.set("local", false);
-map.set("smart", false);
-map.set("vegan", false);
-map.set("vegetarian", false);
+// var map = new Map();
+// map.set("diary", false);
+// map.set("egg", false);
+// map.set("fish", false);
+// map.set("gluten", false);
+// map.set("nuts", true);
+// map.set("sesame", false);
+// map.set("shellfish", false);
+// map.set("soy", true);
+// map.set("halal", false);
+// map.set("local", false);
+// map.set("smart", false);
+// map.set("vegan", false);
+// map.set("vegetarian", false);
 
-const check = await DietDetector("lunch", "yahen", map);
-console.log(check);
+// const check = await DietDetector("lunch", "yahen", map);
+// console.log(check);
