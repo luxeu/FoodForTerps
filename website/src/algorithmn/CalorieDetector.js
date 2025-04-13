@@ -31,8 +31,9 @@ async function CalorieDetector(time, location, index, calorieMin, calorieMax){
     result[1] = fruit;
     result[2] = protein;
     return result;
-
 }
+
+export default CalorieDetector
 
 
 const fuck = await CalorieDetector("lunch", "yahen", 0, 500, 1000);
