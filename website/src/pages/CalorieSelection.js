@@ -4,12 +4,13 @@ import './Pages.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import CalorieDetector from '../algorithmn/CalorieDetector.js';
+import CalorieDetector, { GetMealCalories, GetMealCarbs, GetMealFat, GetMealProtein } from '../algorithmn/CalorieDetector.js';
 
 function CalorieSelection() {
     const { navId } = useParams();
     const [selectedRange, setSelectedRange] = useState(null);
 
+    
     const handleSelect = (eventKey) => {
         setSelectedRange(eventKey);
     };
@@ -27,6 +28,17 @@ function CalorieSelection() {
         }
     };
 
+    const result = CalorieDetector("lunch", navId, 0, selectedRange, selectedRange+500)
+    console.log(result);
+    const resultItems = result.map((food) =>
+        <div className="meal-item">
+            <h4>{food.name}</h4>
+            <p>Calories: {GetMealCalories(food)}</p>
+            <p>Protein: {GetMealProtein(food)}g</p>
+            <p>Carbs: {GetMealCarbs(food)}g</p>
+            <p>Fats: {GetMealFat(food)}g</p>
+        </div>
+    );
     let content;
 
     switch (navId) {
@@ -48,26 +60,17 @@ function CalorieSelection() {
                     )}
                 </div>
             );
-            const result = []
-            result = CalorieDetector("lunch", navId, 0, selectedRange, selectedRange+500)
+            
 
-            // content = (
-            //     <div>
-            //         {content}
-            //         <div className="meal-results">
-            //             <h3>Meal Options:</h3>
-            //             {result.map((meal, index) => (
-            //                 <div key={index} className="meal-item">
-            //                     <h4>{meal.name}</h4>
-            //                     <p>Calories: {meal.calories}</p>
-            //                     <p>Protein: {meal.protein}g</p>
-            //                     <p>Carbs: {meal.carbs}g</p>
-            //                     <p>Fats: {meal.fats}g</p>
-            //                 </div>
-            //             ))}
-            //         </div>
-            //     </div>
-            // );
+            content = (
+                <div>
+                    {content}
+                    <div className="meal-results">
+                        <h3>Meal Options:</h3>
+                        {resultItems}
+                    </div>
+                </div>
+            );
 
             break;
         case 'yahentamitsi':
