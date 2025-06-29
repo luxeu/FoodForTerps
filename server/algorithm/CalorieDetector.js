@@ -244,5 +244,3 @@ module.exports = CalorieDetector;
 // const test = await CalorieDetector("lunch", "Yahentamitsi", 0, 500, 1000);
 // console.log(test);
 // console.log("This is the meal")
-
-mongoose.connect(process.env.DB_URI, { dbname: "FoodForTerps" });
