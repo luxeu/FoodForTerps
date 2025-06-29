@@ -41,7 +41,7 @@ app.use((req, res, next) => {
 
 // ROUTES
 // Attach defined routes to their corresponding endpoints:
-app.use("/fft", routes);
+app.use("/api", routes);
 // app.use("/palz/events", eventRoutes);
 // app.use("/palz/messages", messageRoutes);
 
@@ -57,8 +57,8 @@ mongoose
   // If there's an error connecting, we will see that in the terminal:
   .catch((error) => console.log(error));
 
-// const app = express();
-
+// Define the API endpoint for CalorieDetector
+// This endpoint will handle requests to generate meal data based on query parameters 
 app.get('/api', async (req, res) => {
   try {
     // Extract query parameters from the request
