@@ -24,8 +24,8 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "mongograb": "node /website/src/algorithmn/MongoGrabber.js",
-    "calorie": "node /website/src/algorithmn/CalorieDetector.js",
+    "mongograb": "node /website/src/algorithm/MongoGrabber.js",
+    "calorie": "node /website/src/algorithm/CalorieDetector.js",
     "start": "react-scripts start",
     "start-all": "npm run mongograb && npm run calorie && npm run start",
     "build": "react-scripts build",

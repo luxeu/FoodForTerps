@@ -4,7 +4,7 @@ import './Pages.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import CalorieDetector, { GetMealCalories, GetMealCarbs, GetMealFat, GetMealProtein } from '../algorithmn/CalorieDetector.js';
+import CalorieDetector, { GetMealCalories, GetMealCarbs, GetMealFat, GetMealProtein } from '../algorithm/CalorieDetector.js';
 
 function CalorieSelection() {
     const { navId } = useParams();

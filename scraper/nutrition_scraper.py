@@ -6,7 +6,7 @@ from pymongo import MongoClient
 url = "https://nutrition.umd.edu/?locationNum=51&dtdate=4/13/2025"
 general_sauce =urllib.request.urlopen(url).read()
 general_soup = bs.BeautifulSoup(general_sauce, 'lxml')
-client = MongoClient("mongodb+srv://syang8:tI39ghVdmISktK8U@cluster.gzowamk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster")
+client = MongoClient(vars.env.DB_URI)
 db = client['FoodForTerps']
 users_collection = db['Nutrition']
 delete_result = users_collection.delete_many({})
@@ -67,7 +67,7 @@ for url in general_soup.find_all('a'):
                         # print(protien)
                         # print(food_group)
 
-            # client = MongoClient("mongodb+srv://syang8:tI39ghVdmISktK8U@cluster.gzowamk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster")
+            # client = MongoClient(vars.env.DB_URI)
             # db = client['FoodForTerps']
             # users_collection = db['Nutrition']
             # delete_result = users_collection.delete_many({})

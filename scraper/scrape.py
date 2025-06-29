@@ -86,7 +86,7 @@ def list_menu(meal_time) -> list:
 ## default to scraping yahentamitsi dining menu
 def main(dining_hall_ID: int = 19):
     ## Connect to MongoDB
-    mongoURL = "mongodb+srv://syang8:tI39ghVdmISktK8U@cluster.gzowamk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster"
+    mongoURL = vars.env.DB_URI
     client= MongoClient(mongoURL)
     db = client["FoodForTerps"]
     users_collection = db["General"]
@@ -165,7 +165,7 @@ def main(dining_hall_ID: int = 19):
     print ("Exiting")
 
 if __name__ == '__main__' :
-    mongoURL = "mongodb+srv://syang8:tI39ghVdmISktK8U@cluster.gzowamk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster"
+    mongoURL = vars.env.DB_URI
     client= MongoClient(mongoURL)
     db = client["FoodForTerps"]
     users_collection = db["General"]
