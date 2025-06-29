@@ -1,9 +1,11 @@
-import {generateFoodMap} from "./MongooseGrabber.js";
+// import {generateFoodMap} from "./MongooseGrabber.js";
+const mongoose = require("./MongooseGrabber.js");
 // const food = require('./MongoGrabber.js');
 
-export async function CalorieDetector(time, location, index, calorieMin, calorieMax){
+
+async function CalorieDetector(time, location, index, calorieMin, calorieMax){
     // const foodList = await food.generateFoodMap(time, location);
-    const foodList = await generateFoodMap(time, location);
+    const foodList = await mongoose.generateFoodMap(time, location);
     // console.log("Grabbing Grains");
     const grains = foodList.get('grains');
     const fruits = foodList.get('fruits');
@@ -36,11 +38,11 @@ export async function CalorieDetector(time, location, index, calorieMin, calorie
 // export default CalorieDetector;
 
 
-const test = await CalorieDetector("lunch", "yahen", 0, 500, 1000);
-console.log(test);
+// const test = await CalorieDetector("lunch", "yahen", 0, 500, 1000);
+// console.log(test);
 
-export async function DietDetector(time, location, dietMap){
-    const foodList = await generateFoodMap(time, location);
+async function DietDetector(time, location, dietMap){
+    const foodList = await mongoose.generateFoodMap(time, location);
 
     // const grain = foodList.get('grains');
     // const fruits = foodList.get('fruits');
@@ -181,7 +183,7 @@ export async function DietDetector(time, location, dietMap){
     return result;
 }
 
-export function GetMealCalories(meal) {
+function GetMealCalories(meal) {
     var calories = 0;
     for(const food of meal) {
         calories += food.nutrition.Calories;
@@ -189,28 +191,28 @@ export function GetMealCalories(meal) {
     return calories;
 }
 
-export function GetMealCarbs(meal) {
+function GetMealCarbs(meal) {
     var carbs = 0;
     for(const food of meal) {
         carbs += food.nutrition.total_carbs;
     }
     return carbs;
 }
-export function GetMealFat(meal) {
+function GetMealFat(meal) {
     var fat = 0;
     for(const food of meal) {
         fat += food.nutrition.total_fat;
     }
     return fat;
 }
-export function GetMealProtein(meal) {
+function GetMealProtein(meal) {
     var protein = 0;
     for(const food of meal) {
         protein += food.nutrition.protein;
     }
     return protein;
 }
-export function GetMealSugars(meal) {
+function GetMealSugars(meal) {
     var sugar = 0;
     for(const food of meal) {
         sugar += food.nutrition.total_sugars;
@@ -237,8 +239,10 @@ export function GetMealSugars(meal) {
 // const check = await DietDetector("lunch", "yahen", map);
 // console.log(check);
 
-export default CalorieDetector;
+module.exports = CalorieDetector;
 // console.log("FUCKKSKSKDFLKLSJK");
 // const test = await CalorieDetector("lunch", "Yahentamitsi", 0, 500, 1000);
 // console.log(test);
 // console.log("This is the meal")
+
+mongoose.connect(process.env.DB_URI, { dbname: "FoodForTerps" });

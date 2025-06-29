@@ -1,6 +1,7 @@
-import General  from "./GeneralSchema.js";
-import Nutrition from "./NutritionSchema.js";
-import mongoose from 'mongoose';
+const General = require("./GeneralSchema.js");
+const Nutrition = require("./NutritionSchema.js");
+const mongoose = require("mongoose");
+const { MongoClient } = require("mongodb");
 
 // mongoose.connection.once("open", function() {
 //   console.log("MongoDB connection established");
@@ -55,12 +56,12 @@ function FoodObject(general, nutrition) {
 }
 
 
-export async function generateFoodMap(mealtime, hall) {
-    // await mongoose.connect(vars.env.DB_URI, {dbname: "FoodForTerps"});
-    // var SampleModel = mongoose.model('AHHHHH', mongoose.Schema({},{strict: false}), "General")
-    // var NutritionModel = mongoose.model("FUUUUUU", mongoose.Schema({}, {strict: false}), "Nutrition");
-    // const pain = await SampleModel.find({name: hall}).lean().exec();
-    // const nut = await NutritionModel.find().lean().exec();
+async function generateFoodMap(mealtime, hall) {
+    await mongoose.connect(vars.env.DB_URI, {dbname: "FoodForTerps"});
+    var SampleModel = mongoose.model('AHHHHH', mongoose.Schema({},{strict: false}), "General")
+    var NutritionModel = mongoose.model("FUUUUUU", mongoose.Schema({}, {strict: false}), "Nutrition");
+    const pain = await SampleModel.find({name: hall}).lean().exec();
+    const nut = await NutritionModel.find().lean().exec();
     
 
 
@@ -136,3 +137,4 @@ export async function generateFoodMap(mealtime, hall) {
 
 // const stupid = await generateFoodMap('lunch', "Yahentamitsi");
 // console.log(stupid);
+module.exports = { generateFoodMap };
