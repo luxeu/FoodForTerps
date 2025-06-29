@@ -36,6 +36,8 @@ export async function CalorieDetector(time, location, index, calorieMin, calorie
 // export default CalorieDetector;
 
 
+const test = await CalorieDetector("lunch", "yahen", 0, 500, 1000);
+console.log(test);
 
 export async function DietDetector(time, location, dietMap){
     const foodList = await generateFoodMap(time, location);

@@ -1,8 +1,8 @@
 {
   "name": "foodforterps",
   "version": "0.1.0",
-  "homepage": "https://luxeu.github.io/FoodForTerps",
   "private": true,
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -24,10 +24,10 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start-mongo": "node src/algorithmn/MongoGrabber.js",
-    "start-cal": "node src/algorithmn/CalorieDetector.js",
+    "mongograb": "node /website/src/algorithmn/MongoGrabber.js",
+    "calorie": "node /website/src/algorithmn/CalorieDetector.js",
     "start": "react-scripts start",
-    "start-all": "npm start-mongo && npm start-cal && npm start",
+    "start-all": "npm run mongograb && npm run calorie && npm run start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
