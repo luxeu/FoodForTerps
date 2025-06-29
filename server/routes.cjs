@@ -10,9 +10,9 @@ const {
 
 const router = express.Router();
 
-router.get("/", getYahFood);
-router.get("/", getSouthFood);
-router.get("/", get251Food);
-router.get("/", getNutrition);
+router.get("/yah", getYahFood);
+router.get("/south", getSouthFood);
+router.get("/251", get251Food);
+router.get("/nutrition", getNutrition);
 
 module.exports = router;

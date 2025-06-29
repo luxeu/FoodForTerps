@@ -56,11 +56,13 @@ function FoodObject(general, nutrition) {
 
 
 export async function generateFoodMap(mealtime, hall) {
-    await mongoose.connect(vars.env.DB_URI, {dbname: "FoodForTerps"});
-    var SampleModel = mongoose.model('AHHHHH', mongoose.Schema({},{strict: false}), "General")
-    var NutritionModel = mongoose.model("FUUUUUU", mongoose.Schema({}, {strict: false}), "Nutrition");
-    const pain = await SampleModel.find({name: hall}).lean().exec();
-    const nut = await NutritionModel.find().lean().exec();
+    // await mongoose.connect(vars.env.DB_URI, {dbname: "FoodForTerps"});
+    // var SampleModel = mongoose.model('AHHHHH', mongoose.Schema({},{strict: false}), "General")
+    // var NutritionModel = mongoose.model("FUUUUUU", mongoose.Schema({}, {strict: false}), "Nutrition");
+    // const pain = await SampleModel.find({name: hall}).lean().exec();
+    // const nut = await NutritionModel.find().lean().exec();
+    
+
 
     var map = new Map();
     try {

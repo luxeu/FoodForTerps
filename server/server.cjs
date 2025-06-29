@@ -45,10 +45,10 @@ app.use("/fft", routes);
 
 // Connect to Mongoose:
 mongoose
-  .connect(vars.env.DB_URI)
+  .connect(process.env.DB_URI)
   .then(() => {
     // Listen for requests only after connecting to DB:
-    app.listen(vars.env.PORT, () => {
+    app.listen(process.env.PORT, () => {
       console.log(`Connected to DB & listening on port ${process.env.PORT}!`);
     });
   })
@@ -56,10 +56,6 @@ mongoose
   .catch((error) => console.log(error));
 
 // const app = express();
-
-app.get("/", async (req, res) => {
-  resp.send("App is working");
-});
 
 // app.get('/api', async (req, res) => {
 //   try {
@@ -82,6 +78,6 @@ app.get("/", async (req, res) => {
 //   }
 // });
 
-// app.listen(5000, () => {
-//   console.log("Server started on port 5000");
-// });
+app.listen(5000, () => {
+  console.log("Server started on port 5000");
+});

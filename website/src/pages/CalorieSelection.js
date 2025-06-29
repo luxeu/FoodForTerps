@@ -27,7 +27,6 @@ function CalorieSelection() {
                 return "";
         }
     };
-
     const result = CalorieDetector("lunch", navId, 0, selectedRange, selectedRange+500)
     console.log(result);
     const resultItems = result.map((food) =>
