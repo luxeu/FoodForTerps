@@ -73,8 +73,7 @@ async function generateFoodMap(mealtime, hall) {
 
     var map = new Map();
     try {
-        const foodlist = pain[0].lunch_list;
-        console.log(foodlist);
+        // const foodlist = pain[0].lunch_list;
         // const nutrition = await Nutrition.findOne
         // console.log(general);
         // console.log(nutrition);
@@ -92,13 +91,96 @@ async function generateFoodMap(mealtime, hall) {
         else if(mealtime == "dinner") {
             food_list = pain[0].dinner_list;
         }
-        // console.log(food_list);
+        console.log(food_list);
         var grains = [];
         var proteins = [];
         var fruits = [];
         var other = [];
         console.log("Starting Pushing Foods");
         for(const food of food_list) {
+        // food_list.forEach(async food => {
+            var foodNut = await NutritionModel.findOne({name: "Nutrition | Label - " + food.name + " "}).lean().exec();
+            // var foodNut = await nutrition.findOne({name: "Nutrition | Label - " + food.name + " "});
+            // var foodNut = findFoodNut("Nutrition | Label - " + food.name + " ", );
+            // console.log(foodNut);
+            if(foodNut != null) {
+                var foodObj = new FoodObject(food, foodNut);
+                // console.log(foodObj.name + " grabbed");
+                if(foodObj.food_group == "Protein") {
+                    await sortedInsert(proteins, foodObj);
+                }
+                else if (foodObj.food_group == "Grain") {
+                    await sortedInsert(grains, foodObj);
+                }
+                else if (foodObj.food_group == "Fruits") {
+                    await sortedInsert(fruits, foodObj);
+                }
+                else {
+                    await sortedInsert(other, foodObj);
+                }
+                // console.log(foodObj.name + " sorted");
+            }
+            else {
+                console.log(food.name + " not found");
+            }
+        }
+
+        map.set("grains", grains);
+        map.set("proteins", proteins);
+        map.set("fruits", fruits);
+        map.set("other", other);
+        // return map;
+    } finally {
+        // Ensures that the client will close when you finish/error
+        // await client.close();
+        // await mongoose.connection.close();
+    }
+    console.log("Returning map");
+    // console.log(map);
+    return map;
+} 
+
+//TODO: adding dietary restrictions
+async function generateFoodMap(mealtime, hall, dietMap) {
+    // await mongoose.connect(process.env.DB_URI, {dbname: "FoodForTerps"});
+    
+    const pain = await SampleModel.find({name: hall}).lean().exec();
+    const nut = await NutritionModel.find().lean().exec();
+
+    if(pain == 0) {
+        console.log("Hall not found");
+        return null;
+    }
+
+    var map = new Map();
+    try {
+        // const foodlist = pain[0].lunch_list;
+        // const nutrition = await Nutrition.findOne
+        // console.log(general);
+        // console.log(nutrition);
+        // return;
+        // const hall_doc = await general.findOne({name: hall});
+        // const nut_doc = await nutrition.find({});
+        // console.log(nut_doc.toArray());
+        var food_list;
+        if(mealtime == "breakfast") {
+            food_list = pain[0].breakfast_list;
+        }
+        else if(mealtime == "lunch") {
+            food_list = pain[0].lunch_list;
+        }
+        else if(mealtime == "dinner") {
+            food_list = pain[0].dinner_list;
+        }
+        console.log(food_list);
+        var grains = [];
+        var proteins = [];
+        var fruits = [];
+        var other = [];
+        console.log("Starting Pushing Foods");
+        for(const food of food_list) {
+            //in here check dietary restrictions and find a better way to store dietary stuff
+            
         // food_list.forEach(async food => {
             var foodNut = await NutritionModel.findOne({name: "Nutrition | Label - " + food.name + " "}).lean().exec();
             // var foodNut = await nutrition.findOne({name: "Nutrition | Label - " + food.name + " "});

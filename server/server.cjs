@@ -59,8 +59,12 @@ app.get('/api', async (req, res) => {
       location || "Yahentamitsi", // Default to "Yahentamitsi" if not provided
       parseInt(index, 10) || 0, // Default to 0 if not provided
       parseInt(minCalories, 10) || 0, // Default to 0 if not provided
-      parseInt(maxCalories, 10) || 2000 // Default to 2000 if not provided
+      parseInt(maxCalories, 1000) || 2000 // Default to 2000 if not provided
     );
+    // New thing:
+    // call generateFoodMap
+    // change caloriedetector and dietdetector to take a map and return a trimmed map
+    
 
     res.json({ meal: result });
   } catch (err) {

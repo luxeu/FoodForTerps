@@ -3,9 +3,8 @@ const mongoose = require("./MongooseGrabber.js");
 // const food = require('./MongoGrabber.js');
 
 
-async function CalorieDetector(time, location, index, calorieMin, calorieMax){
+function CalorieDetector(foodList, index, calorieMin, calorieMax){
     // const foodList = await food.generateFoodMap(time, location);
-    const foodList = await mongoose.generateFoodMap(time, location);
     // console.log("Grabbing Grains");
     const grains = foodList.get('grains');
     const fruits = foodList.get('fruits');
@@ -41,8 +40,8 @@ async function CalorieDetector(time, location, index, calorieMin, calorieMax){
 // const test = await CalorieDetector("lunch", "yahen", 0, 500, 1000);
 // console.log(test);
 
-async function DietDetector(time, location, dietMap){
-    const foodList = await mongoose.generateFoodMap(time, location);
+function DietDetector(foodList, dietMap){
+    // const foodList = await mongoose.generateFoodMap(time, location);
 
     // const grain = foodList.get('grains');
     // const fruits = foodList.get('fruits');
