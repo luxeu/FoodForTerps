@@ -3,13 +3,16 @@ const Nutrition = require("./NutritionSchema.js");
 const mongoose = require("mongoose");
 const { MongoClient } = require("mongodb");
 
-// mongoose.connection.once("open", function() {
-//   console.log("MongoDB connection established");
+var SampleModel;
+var NutritionalModel;
 
-//   const pain = await SampleModel.find().lean().exec();
+mongoose.connection.once("open", function() {
+  console.log("MongoDB connection established");
+  SampleModel = mongoose.model('AHHHHH', mongoose.Schema({},{strict: false}), "General")
+  NutritionModel = mongoose.model("FUUUUUU", mongoose.Schema({}, {strict: false}), "Nutrition");
+//   console.log(SampleModel);
+});
 
-//   console.log(pain);
-// // });
 // await mongoose.connect(vars.env.DB_URI, {dbname: "FoodForTerps"});
 // var SampleModel = mongoose.model('AHHHHH', mongoose.Schema({},{strict: false}), "General")
 // var NutritionModel = mongoose.model("FUUUUUU", mongoose.Schema({}, {strict: false}), "Nutrition");
@@ -18,6 +21,7 @@ const { MongoClient } = require("mongodb");
 // // console.log(pain);
 // const foodlist = pain[0].lunch_list;
 // console.log(foodlist);
+
 async function sortedInsert(array, element) {
     if(array.length == 0) {
         array.push(element);
@@ -57,13 +61,15 @@ function FoodObject(general, nutrition) {
 
 
 async function generateFoodMap(mealtime, hall) {
-    await mongoose.connect(vars.env.DB_URI, {dbname: "FoodForTerps"});
-    var SampleModel = mongoose.model('AHHHHH', mongoose.Schema({},{strict: false}), "General")
-    var NutritionModel = mongoose.model("FUUUUUU", mongoose.Schema({}, {strict: false}), "Nutrition");
+    // await mongoose.connect(process.env.DB_URI, {dbname: "FoodForTerps"});
+    
     const pain = await SampleModel.find({name: hall}).lean().exec();
     const nut = await NutritionModel.find().lean().exec();
-    
 
+    if(pain == 0) {
+        console.log("Hall not found");
+        return null;
+    }
 
     var map = new Map();
     try {
@@ -116,7 +122,7 @@ async function generateFoodMap(mealtime, hall) {
                 // console.log(foodObj.name + " sorted");
             }
             else {
-                // console.log(food.name + " not found");
+                console.log(food.name + " not found");
             }
         }
 
@@ -128,7 +134,7 @@ async function generateFoodMap(mealtime, hall) {
     } finally {
         // Ensures that the client will close when you finish/error
         // await client.close();
-        await mongoose.connection.close();
+        // await mongoose.connection.close();
     }
     console.log("Returning map");
     // console.log(map);

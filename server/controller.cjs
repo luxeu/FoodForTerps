@@ -7,10 +7,11 @@ const mongoose = require("mongoose");
 // Import data model for user objects:
 const General = require("../server/algorithm/GeneralSchema");
 const Nutrition = require("../server/algorithm/NutritionSchema");
-
+const mongoosegrabber = require("../server/algorithm/MongooseGrabber");
 const getYahFood = async (req, res) => {
-    const allFoods = await General.find({name : "Yahentamitsi"});
-    // const allFoods = await generateFoodMap("lunch", "Yahentamitsi");
+    // console.log(mongoose.connection.readyState);
+    const allFoods = await General.find({});
+    // const allFoods = await mongoosegrabber.generateFoodMap("lunch", "Yahentamitsi");
     res.status(200).json(allFoods);
 }
 ;
