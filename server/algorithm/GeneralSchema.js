@@ -58,4 +58,4 @@ const generalSchema = new Schema({
 });
 
 
-module.exports = mongoose.model('General', generalSchema);
+module.exports = mongoose.model('General', generalSchema, 'FoodForTerps.General');
