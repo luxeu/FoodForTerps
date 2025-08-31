@@ -45,18 +45,6 @@ app.use("/api", routes);
 // app.use("/palz/events", eventRoutes);
 // app.use("/palz/messages", messageRoutes);
 
-// Connect to Mongoose:
-mongoose
-  .connect(process.env.DB_URI)
-  .then(() => {
-    // Listen for requests only after connecting to DB:
-    app.listen(process.env.PORT, () => {
-      console.log(`Connected to DB & listening on port ${process.env.PORT}!`);
-    });
-  })
-  // If there's an error connecting, we will see that in the terminal:
-  .catch((error) => console.log(error));
-
 // Define the API endpoint for CalorieDetector
 // This endpoint will handle requests to generate meal data based on query parameters 
 // do not use the other routes like /api/yah etc
@@ -85,6 +73,25 @@ app.get('/api', async (req, res) => {
   }
 });
 
-// app.listen(5000, () => {
-//   console.log("Server started on port 5000");
-// });
+// Connect to Mongoose:
+mongoose
+  .connect(process.env.DB_URI)
+  .then(() => {
+    // Listen for requests only after connecting to DB:
+    app.listen(process.env.PORT, () => {
+      console.log(`Connected to DB & listening on port ${process.env.PORT}!`);
+    });
+  })
+  // If there's an error connecting, we will see that in the terminal:
+  .catch((error) => console.log(error));
+
+// Serve static files from the React app
+const path = require("path");
+app.use(express.static(path.join(__dirname, "../website/build")));
+
+// Add a catch-all route to serve index.html for frontend routes (must be last)
+app.get(/(.*)/, (req, res) => {
+  // If the request starts with /api, skip to next middleware
+  if (req.path.startsWith("/api")) return res.status(404).send("API endpoint not found");
+  res.sendFile(path.join(__dirname, "../website/build", "index.html"));
+});

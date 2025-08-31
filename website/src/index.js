@@ -10,7 +10,7 @@ import DietSelection from './pages/DietSelection';
 import CalorieSelection from './pages/CalorieSelection';
 import AboutUs from './pages/AboutUs';
 
-require('dotenv').config()
+//require('dotenv').config()
 
 export default function App() {
   return (
