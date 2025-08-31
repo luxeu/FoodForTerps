@@ -27,7 +27,7 @@ function Selection() {
                 <nav className="northbar">
                     <div className="content-container">
                         <div className="dietimage">
-                            <img src="./pics/vegs.png" alt=""></img>
+                            <img src="/vegs.png" alt=""></img>
                         </div>
                         <div className="button-container-reverse">
                             <div className="description">
@@ -56,7 +56,7 @@ function Selection() {
                             </RouteButton>
                         </div>
                         <div className="nutriimage">
-                            <img src="./pics/nutri.jpg" alt=""></img>
+                            <img src="/nutri.jpg" alt=""></img>
                         </div>
                     </div>
                 </nav>
@@ -67,7 +67,7 @@ function Selection() {
                 <nav className="Ybar">
                     <div className="content-container">
                         <div className="dietimageY">
-                            <img src="./pics/vegs.png" alt=""></img>
+                            <img src="/vegs.png" alt=""></img>
                         </div>
                         <div className="button-container-reverse">
                             <div className="description">
@@ -96,7 +96,7 @@ function Selection() {
                             </RouteButton>
                         </div>
                         <div className="nutriimageY">
-                            <img src="./pics/nutri.jpg" alt=""></img>
+                            <img src="/nutri.jpg" alt=""></img>
                         </div>
                     </div>
                 </nav>
@@ -107,7 +107,7 @@ function Selection() {
                 <nav className="southbar">
                     <div className="content-container">
                         <div className="dietimageS">
-                            <img src="./pics/vegs.png" alt=""></img>
+                            <img src="/vegs.png" alt=""></img>
                         </div>
                         <div className="button-container-reverse">
                             <div className="description">
@@ -136,7 +136,7 @@ function Selection() {
                             </RouteButton>
                         </div>
                         <div className="nutriimageS">
-                            <img src="./pics/nutri.jpg" alt=""></img>
+                            <img src="/nutri.jpg" alt=""></img>
                         </div>
                     </div>
 
