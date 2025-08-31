@@ -26,9 +26,7 @@ function Selection() {
             content = (
                 <nav className="northbar">
                     <div className="content-container">
-                        <div className="dietimage">
-                            <img src="../../public/vegs.png" alt=""></img>
-                        </div>
+                        <div className="dietimage"></div>
                         <div className="button-container-reverse">
                             <div className="description">
                                 <p>Explore tailor made dietary plans to improve and maintain your health.</p>
@@ -55,9 +53,7 @@ function Selection() {
                                 Calorie Plans
                             </RouteButton>
                         </div>
-                        <div className="nutriimage">
-                            <img src="../../public/nutri.jpg" alt=""></img>
-                        </div>
+                        <div className="nutriimage"></div>
                     </div>
                 </nav>
             );
@@ -66,9 +62,7 @@ function Selection() {
             content = (
                 <nav className="Ybar">
                     <div className="content-container">
-                        <div className="dietimageY">
-                            <img src="../../public/vegs.png" alt=""></img>
-                        </div>
+                        <div className="dietimageY"></div>
                         <div className="button-container-reverse">
                             <div className="description">
                                 <p>Explore tailor made dietary plans to improve and maintain your health.</p>
@@ -95,9 +89,7 @@ function Selection() {
                                 Calorie Plans
                             </RouteButton>
                         </div>
-                        <div className="nutriimageY">
-                            <img src="../../public/nutri.jpg" alt=""></img>
-                        </div>
+                        <div className="nutriimageY"></div>
                     </div>
                 </nav>
             );
@@ -106,9 +98,7 @@ function Selection() {
             content = (
                 <nav className="southbar">
                     <div className="content-container">
-                        <div className="dietimageS">
-                            <img src="../../public/vegs.png" alt=""></img>
-                        </div>
+                        <div className="dietimageS"></div>
                         <div className="button-container-reverse">
                             <div className="description">
                                 <p>Explore tailor made dietary plans to improve and maintain your health.</p>
@@ -135,9 +125,7 @@ function Selection() {
                                 Calorie Plans
                             </RouteButton>
                         </div>
-                        <div className="nutriimageS">
-                            <img src="../../public/nutri.jpg" alt=""></img>
-                        </div>
+                        <div className="nutriimageS"></div>
                     </div>
 
                 </nav>
