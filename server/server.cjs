@@ -42,8 +42,6 @@ app.use((req, res, next) => {
 // ROUTES
 // Attach defined routes to their corresponding endpoints:
 app.use("/api", routes);
-// app.use("/palz/events", eventRoutes);
-// app.use("/palz/messages", messageRoutes);
 
 // Define the API endpoint for CalorieDetector
 // This endpoint will handle requests to generate meal data based on query parameters 
@@ -55,7 +53,7 @@ app.get('/api', async (req, res) => {
 
     // Call CalorieDetector with the provided parameters
     const result = await cal(
-      time || "lunch", // Default to "lunch" if not provided
+      time || "lunch_list", // Default to "lunch" if not provided
       location || "Yahentamitsi", // Default to "Yahentamitsi" if not provided
       parseInt(index, 10) || 0, // Default to 0 if not provided
       parseInt(minCalories, 10) || 0, // Default to 0 if not provided
