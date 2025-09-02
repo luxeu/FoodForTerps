@@ -2,7 +2,7 @@
 require("express");
 
 // Import & enable dotenv in the file:
-require("dotenv").config();
+require('dotenv').config({ path: require('path').resolve(__dirname, '../.env') });
 
 const cal = require("../server/algorithm/CalorieDetector.js");
 const { generateFoodMap } = require("../server/algorithm/MongooseGrabber.js");

@@ -6,10 +6,10 @@ const mongoose = require("./MongooseGrabber.js");
 function CalorieDetector(foodList, index, calorieMin, calorieMax){
     // const foodList = await food.generateFoodMap(time, location);
     // console.log("Grabbing Grains");
-    console.log(foodList);
-    console.log(index);
-    console.log(calorieMin);
-    console.log(calorieMax);
+    // console.log(foodList);
+    // console.log(index);
+    // console.log(calorieMin);
+    // console.log(calorieMax);
     const grains = foodList.get('grains');
     const fruits = foodList.get('fruits');
     const proteins = foodList.get('proteins');

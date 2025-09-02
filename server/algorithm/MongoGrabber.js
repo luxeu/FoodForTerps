@@ -39,7 +39,7 @@ function FoodObject(general, nutrition) {
 
 
 export async function generateFoodMap(mealtime, hall) {
-    const uri = vars.env.DB_URI
+    const uri = process.env.DB_URI
 
     const client = new MongoClient(uri);
     var map = new Map();

@@ -2,11 +2,16 @@ import bs4 as bs
 import urllib.request
 from urllib.error import URLError, HTTPError
 from pymongo import MongoClient
+from dotenv import load_dotenv
+import os
 
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '..', '.env'))
+
+db_uri = os.environ.get('DB_URI')
 url = "https://nutrition.umd.edu/?locationNum=51&dtdate=4/13/2025"
 general_sauce =urllib.request.urlopen(url).read()
 general_soup = bs.BeautifulSoup(general_sauce, 'lxml')
-client = MongoClient(vars.env.DB_URI)
+client = MongoClient(db_uri)
 db = client['FoodForTerps']
 users_collection = db['Nutrition']
 delete_result = users_collection.delete_many({})

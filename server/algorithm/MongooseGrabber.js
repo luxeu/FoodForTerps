@@ -105,7 +105,7 @@ async function generateFoodMap(mealtime, hall) {
             // console.log(foodNut);
             if(foodNut != null) {
                 var foodObj = new FoodObject(food, foodNut);
-                // console.log(foodObj.name + " grabbed");
+                console.log(foodObj.name + " grabbed");
                 if(foodObj.food_group == "Protein") {
                     await sortedInsert(proteins, foodObj);
                 }

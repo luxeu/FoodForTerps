@@ -3,9 +3,12 @@ import urllib.request
 from datetime import date
 from pymongo import MongoClient
 import json
+from dotenv import load_dotenv
+import os
 
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '..', '.env'))
 
-
+db_uri = os.environ.get('DB_URI')
 
 ## Scrapes given "pane-X" div and returns list of food objects that contain name, location in dining hall, and diet tags
 def list_menu(meal_time) -> list:
@@ -86,7 +89,7 @@ def list_menu(meal_time) -> list:
 ## default to scraping yahentamitsi dining menu
 def main(dining_hall_ID: int = 19):
     ## Connect to MongoDB
-    mongoURL = vars.env.DB_URI
+    mongoURL = db_uri
     client= MongoClient(mongoURL)
     db = client["FoodForTerps"]
     users_collection = db["General"]
@@ -165,7 +168,7 @@ def main(dining_hall_ID: int = 19):
     print ("Exiting")
 
 if __name__ == '__main__' :
-    mongoURL = vars.env.DB_URI
+    mongoURL = db_uri
     client= MongoClient(mongoURL)
     db = client["FoodForTerps"]
     users_collection = db["General"]
