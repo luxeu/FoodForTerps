@@ -18,4 +18,4 @@ const nutritionSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model("Nutrition", nutritionSchema);
+module.exports = mongoose.model("Nutrition", nutritionSchema, "Nutrition");
