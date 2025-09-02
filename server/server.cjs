@@ -5,6 +5,7 @@ require("express");
 require("dotenv").config();
 
 const cal = require("../server/algorithm/CalorieDetector.js");
+const { generateFoodMap } = require("../server/algorithm/MongooseGrabber.js");
 
 // Express app:
 const express = require("express");
@@ -51,18 +52,19 @@ app.get('/api', async (req, res) => {
     // Extract query parameters from the request
     const { time, location, index, minCalories, maxCalories } = req.query;
 
-    // Call CalorieDetector with the provided parameters
-    const result = await cal(
-      time || "lunch_list", // Default to "lunch" if not provided
-      location || "Yahentamitsi", // Default to "Yahentamitsi" if not provided
-      parseInt(index, 10) || 0, // Default to 0 if not provided
-      parseInt(minCalories, 10) || 0, // Default to 0 if not provided
-      parseInt(maxCalories, 1000) || 2000 // Default to 2000 if not provided
+    // Generate the food map for the requested meal and location
+    const foodMap = await generateFoodMap(time || "lunch", location || "Yahentamitsi");
+    if (!foodMap) {
+      return res.status(404).json({ error: "No food data found for the specified meal/location." });
+    }
+
+    // Call CalorieDetector with the food map and other parameters
+    const result = cal(
+      foodMap,
+      parseInt(index, 10) || 0,
+      parseInt(minCalories, 10) || 0,
+      parseInt(maxCalories, 10) || 2000
     );
-    // New thing:
-    // call generateFoodMap
-    // change caloriedetector and dietdetector to take a map and return a trimmed map
-    
 
     res.json({ meal: result });
   } catch (err) {
