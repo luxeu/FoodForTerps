@@ -17,7 +17,7 @@ function CalorieDetector(foodList, index, calorieMin, calorieMax){
     var grain, fruit, protein;
     for (var i = 0; i < length; i++) {
         var totalCalories = grains[i].nutrition.Calories + fruits[i].nutrition.Calories + proteins[i].nutrition.Calories;
-        console.log(grains[i].nutrition.Calories + " "+ fruits[i].nutrition.Calories +" "+ proteins[i].nutrition.Calories)
+        // console.log(grains[i].nutrition.Calories + " "+ fruits[i].nutrition.Calories +" "+ proteins[i].nutrition.Calories)
         if( totalCalories >= calorieMin && totalCalories <= calorieMax) {
             if (index == 0) {
                 console.log("found Match");

@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const { MongoClient } = require("mongodb");
 
 var SampleModel;
-var NutritionalModel;
+var NutritionModel;
 
 mongoose.connection.once("open", function() {
   console.log("MongoDB connection established");
@@ -22,7 +22,7 @@ mongoose.connection.once("open", function() {
 // const foodlist = pain[0].lunch_list;
 // console.log(foodlist);
 
-async function sortedInsert(array, element) {
+function sortedInsert(array, element) {
     if(array.length == 0) {
         array.push(element);
         // console.log("pushed");
@@ -63,9 +63,8 @@ function FoodObject(general, nutrition) {
 async function generateFoodMap(mealtime, hall) {
     // await mongoose.connect(process.env.DB_URI, {dbname: "FoodForTerps"});
     
-    const pain = await SampleModel.find({name: hall}).lean().exec();
-    const nut = await NutritionModel.find().lean().exec();
-
+    const pain = await General.find({name: hall}).lean().exec();
+    console.log(nut);
     if(pain == 0) {
         console.log("Hall not found");
         return null;
@@ -91,7 +90,7 @@ async function generateFoodMap(mealtime, hall) {
         else if(mealtime == "dinner") {
             food_list = pain[0].dinner_list;
         }
-        console.log(food_list);
+        // console.log(food_list);
         var grains = [];
         var proteins = [];
         var fruits = [];
@@ -99,29 +98,29 @@ async function generateFoodMap(mealtime, hall) {
         console.log("Starting Pushing Foods");
         for(const food of food_list) {
         // food_list.forEach(async food => {
-            var foodNut = await NutritionModel.findOne({name: "Nutrition | Label - " + food.name + " "}).lean().exec();
+            var foodNut = await Nutrition.findOne({name: "Nutrition | Label - " + food.name + " "}).lean().exec();
             // var foodNut = await nutrition.findOne({name: "Nutrition | Label - " + food.name + " "});
             // var foodNut = findFoodNut("Nutrition | Label - " + food.name + " ", );
-            // console.log(foodNut);
+            console.log(foodNut);
             if(foodNut != null) {
                 var foodObj = new FoodObject(food, foodNut);
                 console.log(foodObj.name + " grabbed");
                 if(foodObj.food_group == "Protein") {
-                    await sortedInsert(proteins, foodObj);
+                    sortedInsert(proteins, foodObj);
                 }
                 else if (foodObj.food_group == "Grain") {
-                    await sortedInsert(grains, foodObj);
+                    sortedInsert(grains, foodObj);
                 }
                 else if (foodObj.food_group == "Fruits") {
-                    await sortedInsert(fruits, foodObj);
+                    sortedInsert(fruits, foodObj);
                 }
                 else {
-                    await sortedInsert(other, foodObj);
+                    sortedInsert(other, foodObj);
                 }
                 // console.log(foodObj.name + " sorted");
             }
             else {
-                console.log(food.name + " not found");
+                // console.log(food.name + " not found");
             }
         }
 
@@ -146,7 +145,7 @@ async function generateFoodMap(mealtime, hall, dietMap) {
     
     const pain = await SampleModel.find({name: hall}).lean().exec();
     const nut = await NutritionModel.find().lean().exec();
-
+    console.log(nut);
     if(pain == 0) {
         console.log("Hall not found");
         return null;
@@ -182,13 +181,13 @@ async function generateFoodMap(mealtime, hall, dietMap) {
             //in here check dietary restrictions and find a better way to store dietary stuff
             
         // food_list.forEach(async food => {
-            var foodNut = await NutritionModel.findOne({name: "Nutrition | Label - " + food.name + " "}).lean().exec();
+            var foodNut = await Nutrition.findOne({name: "Nutrition | Label - " + food.name + " "}).lean().exec();
             // var foodNut = await nutrition.findOne({name: "Nutrition | Label - " + food.name + " "});
             // var foodNut = findFoodNut("Nutrition | Label - " + food.name + " ", );
-            // console.log(foodNut);
+            console.log(foodNut);
             if(foodNut != null) {
                 var foodObj = new FoodObject(food, foodNut);
-                // console.log(foodObj.name + " grabbed");
+                console.log(foodObj.name + " grabbed");
                 if(foodObj.food_group == "Protein") {
                     await sortedInsert(proteins, foodObj);
                 }
@@ -201,7 +200,7 @@ async function generateFoodMap(mealtime, hall, dietMap) {
                 else {
                     await sortedInsert(other, foodObj);
                 }
-                // console.log(foodObj.name + " sorted");
+                console.log(foodObj.name + " sorted");
             }
             else {
                 console.log(food.name + " not found");
