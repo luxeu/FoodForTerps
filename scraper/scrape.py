@@ -3,8 +3,12 @@ import urllib.request
 from datetime import date
 from pymongo import MongoClient
 import json
+from dotenv import load_dotenv
+import os
 
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '..', '.env'))
 
+db_uri = os.environ.get('DB_URI')
 
 
 ## Scrapes given "pane-X" div and returns list of food objects that contain name, location in dining hall, and diet tags
@@ -86,11 +90,13 @@ def list_menu(meal_time) -> list:
 ## default to scraping yahentamitsi dining menu
 def main(dining_hall_ID: int = 19):
     ## Connect to MongoDB
-    mongoURL = "mongodb+srv://syang8:tI39ghVdmISktK8U@cluster.gzowamk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster"
+    mongoURL = db_uri
+
     client= MongoClient(mongoURL)
     db = client["FoodForTerps"]
     users_collection = db["General"]
     print("Connected to Mongo creating General Collection")
+
     
     print("Dropping existing collection")
     delete_result = users_collection.delete_many({})
@@ -107,11 +113,12 @@ def main(dining_hall_ID: int = 19):
     dining_hall = dining_hall_ID
     hallname = "unknown_hall"
     if dining_hall == 16:
-        hallname = "south"
+        hallname = "South Campus"
     elif dining_hall == 19:
-        hallname = "yahen"
+        hallname = "Yahentamitsi"
     elif dining_hall == 51:
-        hallname = "251"
+        hallname = "251 North"
+
     print("Retrieved Dining Hall: " + hallname + "")
 
     ## Initialize mealtime lists
@@ -169,6 +176,14 @@ def main(dining_hall_ID: int = 19):
     print ("Exiting")
 
 if __name__ == '__main__' :
-    
+    mongoURL = db_uri
+    client= MongoClient(mongoURL)
+    db = client["FoodForTerps"]
+    users_collection = db["General"]
+    print("Dropping existing collection")
+    delete_result = users_collection.delete_many({})
+    print("Dropped Collection")
     # print(delete_result)
     main()
+    main(16)
+    main(51)

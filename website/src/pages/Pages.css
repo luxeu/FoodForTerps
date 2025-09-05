@@ -50,7 +50,7 @@
 }
 
 .dietimage {
-    background-image: url('./pics/vegs.png');
+    background-image: url('../../public/vegs.png');
     width: 820px;
     height: 500px;
     background-position: 50% 50%;
@@ -61,7 +61,7 @@
 }
 
 .nutriimage {
-    background-image: url('./pics/nutri.jpg');
+    background-image: url('../../public/nutri.jpg');
     width: 820px;
     height: 500px;
     position: flex;
@@ -73,7 +73,7 @@
 }
 
 .dietimageY {
-    background-image: url('./pics/vegs.png');
+    background-image: url('../../public/vegs.png');
     width: 820px;
     height: 500px;
     background-position: 50% 50%;
@@ -84,7 +84,7 @@
 }
 
 .nutriimageY {
-    background-image: url('./pics/nutri.jpg');
+    background-image: url('../../public/nutri.jpg');
     width: 820px;
     height: 500px;
     position: flex;
@@ -96,7 +96,7 @@
 }
 
 .dietimageS {
-    background-image: url('./pics/vegs.png');
+    background-image: url('../../public/vegs.png');
     width: 820px;
     height: 500px;
     background-position: 50% 50%;
@@ -107,7 +107,7 @@
 }
 
 .nutriimageS {
-    background-image: url('./pics/nutri.jpg');
+    background-image: url('../../public/nutri.jpg');
     width: 820px;
     height: 500px;
     position: flex;
