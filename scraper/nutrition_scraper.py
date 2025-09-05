@@ -12,6 +12,7 @@ url = "https://nutrition.umd.edu/?locationNum=51&dtdate=4/13/2025"
 general_sauce =urllib.request.urlopen(url).read()
 general_soup = bs.BeautifulSoup(general_sauce, 'lxml')
 client = MongoClient(db_uri)
+
 db = client['FoodForTerps']
 users_collection = db['Nutrition']
 delete_result = users_collection.delete_many({})
@@ -28,6 +29,10 @@ for url in general_soup.find_all('a'):
             div = soup.find_all(class_= 'nutfactstopnutrient')
 
             calories = int(float(cal_finder[1].get_text()))
+            print(name)
+
+            div = soup.find_all(class_= 'nutfactstopnutrient')
+
             total_fat = int(float(div[0].get_text().split()[-1][:-1]))
             total_carbs = int(float(div[2].get_text().split()[-1][:-1]))
             total_carbs_daily = int(float(div[3].get_text().split()[-1][:-1]))
@@ -73,6 +78,7 @@ for url in general_soup.find_all('a'):
                         # print(food_group)
 
             # client = MongoClient(vars.env.DB_URI)
+
             # db = client['FoodForTerps']
             # users_collection = db['Nutrition']
             # delete_result = users_collection.delete_many({})
