@@ -18,8 +18,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 app.use(cors()); // more on .use() method below...
 
-/* Assign routes (which we will later define in respective files), 
-  to variables (in my app so far, : */
+/* Assign routes*/
 const routes = require("./routes.cjs");
 
 // MIDDLEWARE
